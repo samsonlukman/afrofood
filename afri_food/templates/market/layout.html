@@ -1,0 +1,197 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}A F R I F O O D{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'afri_food/global.css' %}" rel="stylesheet">
+    <link href="{% static 'afri_food/index.css' %}" rel="stylesheet">
+    <link href="{% static 'afri_food/checkout.css' %}" rel="stylesheet">
+    <link href="{% static 'afri_food/market.css' %}" rel="stylesheet">
+    <link href="{% static 'afri_food/detail.css' %}" rel="stylesheet">
+    <link href="{% static 'afri_food/upload.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+        <script src="static/afri_food/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+ 
+    <body style="  font-family: Display">
+      <script>
+        function checkAuthAndRedirect(event, text) {
+  event.preventDefault();
+  alert(text);
+}
+
+
+function openModal(modalId) {
+  closeAllModals();
+
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "block";
+  }
+}
+
+function closeAllModals() {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach((modal) => {
+    modal.style.display = "none";
+  });
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+      </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(loginForm);
+      fetch(`{% url 'login' %}`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          checkAuthAndRedirect(event, data.error);
+        } else {
+          window.location.href = data.redirect_url;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  }
+});
+
+      </script>
+      {% include 'market/login.html' %}
+      {% include 'market/register.html' %}
+      
+      <div class="container-fluid top-page">
+          <div class="row">
+              <div class="col-l" style="margin-left: 40px;">
+                  <a href="{% url 'index' %}">
+                  <img src="/media/images/afr.png" id="index-suqlogo">
+              </a>
+              </div>
+              <div class="col-md-3">
+                  <div id="searchicon">
+                      <form action="{% url 'index' %}" method="get" style="margin-top: 10px;">
+                        <input id="search-button" type="text" name="q" placeholder="Search" style="background-image: url('media/post_image/search.png'); background-repeat: no-repeat; background-position: left center; padding-left: 15px; outline: none;">
+                      </form>
+                    </div>
+                    
+              </div>
+              <div class="col-md-2">
+                  <!-- Content for Column 3 -->
+                  <a href="{% url 'index' %}">
+                  <i class="fas fa-home top-page" style="margin-top: 10px;"></i>
+                  <p style="margin-top: 40px;">Home</p>
+              </a>
+                  
+              </div>
+              <div class="col-md-2">
+                  <!-- Content for Column 4 -->
+                   {% if request.user.is_authenticated %}
+                  <a href="{% url 'logout' %}">
+                  <i class="fas fa-sign-out-alt top-page" style="margin-top: 10px;"></i>
+                  <p style="margin-top: 40px;">Logout</p>
+                  </a>
+                  {% else %}
+                  
+                    <i onclick="openModal('loginModal')" class="fas fa-sign-in-alt top-page" style="margin-top: 10px;"></i>
+                    <p onclick="openModal('loginModal')" style="margin-top: 40px;">Sign in / Sign up</p>
+                   
+
+                    {% endif %}
+              </div>
+              <div class="col-md-2">
+                <!-- Content for Column 4 -->
+                {% if user.is_authenticated %}
+                  <a href="{% url 'cart_view' %}">
+                    <i class="fas fa-shopping-cart top-page" style="margin-top: 10px; color: black;"><span class="">{{cart_item_count}}</span></i>
+                    <p style="margin-top: 40px;">Cart</p>
+                  </a>
+                {% else %}
+                  <a href="#" onclick="checkAuthAndRedirect(event, 'You need to sign in to view the cart')">
+                    <i class="fas fa-shopping-cart top-page" style="margin-top: 10px; color: black;"></i>
+                    <p style="margin-top: 40px;">Cart</p>
+                  </a>
+                {% endif %}
+              </div>
+              
+              
+              
+              <div class="col-md-2">
+                  <!-- Content for Column 6 -->
+              <i onclick="openModal('categoryModal')" class="fas fa-tags top-page" style="margin-top: 10px;"></i>
+              <p onclick="openModal('categoryModal')" style="margin-top: 40px;"> Categories</p>
+              </div>
+          </div>
+          <div class="modal" id="categoryModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel-{{ comment.id }}">Categories</h5>
+                        
+                    </div>
+                    <div class="modal-body">
+                      <a class="dropdown-item" href="{% url 'oils' %}">Oils</a>
+                      <a class="dropdown-item" href="{% url 'crayfish' %}">Crayfish</a>
+                      <a class="dropdown-item" href="{% url 'catfish' %}">Catfish</a>
+                      <a class="dropdown-item" href="{% url 'ponmo_by_kg' %}">Ponmo By Kg</a>
+                      <a class="dropdown-item" href="{% url 'ponmo_by_piece' %}">Ponmo By Piece</a>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" onclick="closeModal('categoryModal')">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      
+       
+          {% block body %}{% endblock %}
+          
+          
+  </body>
+</html>

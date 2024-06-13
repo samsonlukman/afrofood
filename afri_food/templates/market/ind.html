@@ -1,0 +1,608 @@
+
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="desktop-1-inner">
+    <div class="component-main-parent">
+      <div class="component-main">
+        {% if request.user.is_authenticated %}
+        <div class="hi-foodie">Hi {{ user.username }}</div>
+        {% else %}
+        <div class="hi-foodie">Hi Foodie</div>
+        {% endif %}
+      </div>
+      <div class="welcome-to-afrifood-at-afrifoo-parent">
+        <div class="welcome-to-afrifood-container">
+          <p class="welcome-to-afrifood">
+            <span class="welcome-to">Welcome to AfriFood</span>
+          </p>
+          <p class="blank-line">
+            <span class="blank-line1">&nbsp;</span>
+          </p>
+          <p class="at-afrifood-we">
+            At Afrifood, we connect buyers with sellers of fresh produce,
+            canned goods, and baked goods. Our platform is easy to use and
+            facilitates seamless transactions between buyers and sellers.
+          </p>
+        </div>
+        <button class="shop-now-wrapper" id="frameButton">
+          <div class="shop-now">SHOP NOW</div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="frame-parent1">
+    <main class="ewe-palm-1-parent">
+      <img class="ewe-palm-1" alt="" src="/static/afri_food/public/ewe-palm-1@2x.png" />
+
+      <div class="join-our-community">
+        Join our community of buyers and sellers and experience the
+        convenience of online food shopping. Whether you're looking for
+        fresh produce, canned goods, or baked goods, we have it all at
+        AFRIFOOD
+      </div>
+    </main>
+    
+    <img
+      class="frame-item"
+      loading="lazy"
+      alt=""
+      src="/media/images/egusi.png"
+    />
+
+    <a href="{% url 'category_detail' slug='seafood' %}">
+    <img
+      class="frame-inner"
+      loading="lazy"
+      alt=""
+      src="/media/images/catfish.png"
+    />
+    </a>
+
+    <a href="{% url 'category_detail' slug='cow-skin-dried-ponmo' %}">
+    <img
+      class="image-1-icon"
+      loading="lazy"
+      alt=""
+      src="/media/images/pon.png"
+    />
+    </a>
+
+
+    <a href="{% url 'category_detail' slug='seafood' %}">
+    <img
+      class="image-3-icon"
+      loading="lazy"
+      alt=""
+      src="/media/images/prawn.jpg"
+    />
+    </a>
+
+    <a href="{% url 'category_detail' slug='cow-skin-dried-ponmo' %}">
+    <img
+      class="image-4-icon"
+      loading="lazy"
+      alt=""
+      src="/media/images/palmoi.png"
+    />
+    </a>
+  </div>
+  <div class="component-component">
+    <div class="frame-parent2">
+      <div class="frame-wrapper">
+        <div class="parent">
+          <h1 class="h1">“</h1>
+          <div class="wrapper">
+            <h1 class="h11">”</h1>
+          </div>
+        </div>
+      </div>
+      <div
+        class="discover-our-products-container"
+        data-scroll-to="discoverOurProducts"
+      >
+        <p class="discover-our-products">Browse Our Categories</p>
+        <p class="take-a-look">
+          Take a look at what our sellers have to offer. From organic apples
+          to canned tuna and freshly baked bread, we have a wide range of
+          products to choose from.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="desktop-1-child">
+    <div class="component-component-component-parent">
+      <div class="component-component-component">
+        <div class="new-arrivals">New Arrivals</div>
+      </div>
+      <img class="image-logo-icon" loading="lazy" alt="" />
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="shop-area">
+      <div class="browse-our-categories-easily-f-wrapper">
+        <div
+          class="browse-our-categories-container"
+          data-scroll-to="browseOurCategories"
+        >
+          <p class="browse-our-categories">Check Out Our Products</p>
+          <p class="easily-find-what">
+            Easily find what you’re looking for by browsing our categories
+            of fresh produce, canned goods, and baked goods.
+          </p>
+        </div>
+      </div>
+      <div class="frame-parent3">
+        <div class="component-1-parent">
+          {% for oil in recent_oils %}
+          {% if oil.images.exists %}
+          <img
+            class="component-1-icon"
+            loading="lazy"
+            alt=""
+            src="{{ oil.images.first.image.url }}"
+          />
+          {% endif %}
+          {% endfor %}
+
+          <div class="component-2-wrapper">
+            <div class="component-2">
+              <img
+                class="image-1-icon1"
+                alt=""
+                src="/media/images/palmoi.png"
+              />
+
+              <img
+                class="image-8-icon"
+                loading="lazy"
+                alt=""
+                src="/media/images/palmoi.png"
+              />
+            </div>
+          </div>
+          <img
+            class="component-3-icon"
+            loading="lazy"
+            alt=""
+            src="/media/images/palmoi.png"
+          />
+        </div>
+        <div class="frame-parent4">
+          <div class="component-4-wrapper">
+            <img
+              class="component-4-icon"
+              loading="lazy"
+              alt=""
+              src="/media/images/palmoi.png"
+            />
+          </div>
+          <img
+            class="component-5-icon"
+            loading="lazy"
+            alt=""
+            src="/media/images/palmoi.png"
+          />
+
+          <img
+            class="component-6-icon"
+            loading="lazy"
+            alt=""
+            src="/media/images/palmoi.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="a-fri-food-message-wrapper">
+    <div class="a-fri-food-message">
+      <div class="afrifood-at-foode-were-passi-parent">
+        <div class="afrifood-at-foode-container">
+          <p class="afrifood1">
+            <b>AFriFood </b>
+            <a
+              class="od"
+              href="https://10web-site.ai/75/big-spaniel/"
+              target="_blank"
+            >
+              <b>
+                <span class="od1"></span>
+              </b>
+            </a>
+          </p>
+          <p class="blank-line2">
+            <a
+              class="blank-line3"
+              href="https://10web-site.ai/75/big-spaniel/"
+              target="_blank"
+            >
+              <b>
+                <span class="blank-line4">&nbsp;</span>
+              </b>
+            </a>
+          </p>
+          <p class="at-foode-were-passionate-abo">
+            <span>
+              <span class="at-food"></span>
+              <span class="e-were-passionate">At AfriFood, we’re passionate about connecting buyers with sellers of
+                fresh food. If you’re interested in selling your fresh
+                produce, canned goods, or baked goods with us, sign up today
+                and start selling!</span
+              >
+            </span>
+          </p>
+        </div>
+        <div class="sign-up-area-parent">
+          <img
+            class="sign-up-area"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-40.svg"
+          />
+
+          <img
+            class="sign-up-area1"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-41.svg"
+          />
+
+          <img
+            class="sign-up-area2"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-42.svg"
+          />
+        </div>
+      </div>
+      <div class="email-field">
+        <div class="contacts-saleafrifood-1-container">
+          <p class="contacts">
+            <b>Contacts:</b>
+          </p>
+          <p class="blank-line5">
+            <b>&nbsp;</b>
+          </p>
+          <p class="saleafrifood">sale@Afrifood.com</p>
+          <p class="blank-line6">&nbsp;</p>
+          <p class="p">+234 915 510 2965</p>
+          <p class="blank-line7">&nbsp;</p>
+          <p class="jones-st-something">9, something something</p>
+        </div>
+      </div>
+      <div class="call-to-action">
+        <div class="sign-up-for-the-latest-deals-b-parent">
+          <div class="sign-up-for-container">
+            <p class="sign-up-for-the-latest-deals">
+              <b class="sign-up-for-the-latest-deals1">
+                <span class="sign-up-for"
+                  >Sign up for the latest deals</span
+                >
+              </b>
+            </p>
+            <p class="blank-line8">
+              <b class="blank-line9">
+                <span class="blank-line10">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line11">
+              <b class="blank-line12">
+                <span class="blank-line13">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line14">
+              <b class="blank-line15">
+                <span class="blank-line16">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line17">
+              <span>
+                <b class="blank-line18">&nbsp;</b>
+              </span>
+            </p>
+            <p class="by-subscribing-i-agree-to-the">
+              <span>
+                <span class="by-subscribing-i-agree-to-the1"
+                  >By subscribing, I agree to the 
+                </span>
+              </span>
+              <a
+                class="terms-of-use"
+                href="https://www.groupon.com/terms"
+                target="_blank"
+              >
+                <span>
+                  <span class="terms-of-use1">
+                    <span class="terms-of-use2">Terms of Use </span>
+                  </span>
+                </span>
+              </a>
+            </p>
+            <p class="and-have-read-the-privacy-stat">
+              <span>
+                <span class="and-have-read-the">and have read the  </span>
+              </span>
+              <a
+                class="privacy-statement"
+                href="https://privacy.groupon.com/policies/en-US"
+                target="_blank"
+              >
+                <span>
+                  <span class="privacy-statement1">
+                    <span class="privacy-statement2"
+                      >Privacy Statement.</span
+                    >
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div class="email-address-wrapper">
+            <input
+              class="email-address"
+              placeholder="Email Address"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="contact-info-parent">
+    <div class="contact-info">
+      <b class="shop-about-contact">Shop About Contact</b>
+    </div>
+    <img
+      class="image-11-icon"
+      loading="lazy"
+      alt=""
+      src="/static/afri_food/public/image-11@2x.png"
+    />
+  </footer>
+</div>
+
+<div id="uploadPopup" class="popup-overlay" style="display: none">
+  <div class="upload5">
+    <h1 class="upload6">Upload</h1>
+    <div class="upload-btn"></div>
+    <div class="upload-btn1"></div>
+    <div class="upload-btn2"></div>
+    <section class="upload-inner">
+      <div class="frame-parent26">
+        <div class="ellipse-container">
+          <div class="frame-child24"></div>
+          <div class="frame-child25"></div>
+          <div class="address-details-parent">
+            <div class="address-details">
+              <div class="name-price-street-container">
+                <p class="blank-line73">&nbsp;</p>
+                <p class="name2">
+                  <span class="name3">Name* </span>
+                  <span class="span1"> </span>
+                </p>
+                <p class="price">Price*</p>
+                <p class="street-address2">Street address</p>
+                <p class="tags">Tags</p>
+              </div>
+            </div>
+            <div class="category-description">
+              <p class="category">Category*</p>
+              <p class="description1">Description</p>
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrapper8">
+          <div class="frame-parent27">
+            <div class="frame-parent28">
+              <input class="frame-child26" type="text" />
+
+              <input class="frame-child27" type="text" />
+
+              <input class="frame-child28" type="text" />
+
+              <input class="frame-child29" type="text" />
+            </div>
+            <div class="frame-parent29">
+              <div class="food-type-label-wrapper">
+                <div class="food-type-label">
+                  <div class="oil-meat-powder">
+                    Oil Meat Powder Fruit Meat Spices
+                  </div>
+                  <div class="circle-marker">
+                    <div class="circle-marker-child"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="snapshot-box"></div>
+              <div class="snapshot">Snapshot</div>
+              <div class="frame-wrapper9">
+                <div class="frame-parent30">
+                  <img
+                    class="frame-child30"
+                    loading="lazy"
+                    alt=""
+                    src="./public/frame-56.svg"
+                  />
+
+                  <img class="frame-child31" loading="lazy" alt="" />
+
+                  <div class="frame-parent31">
+                    <img
+                      class="frame-child32"
+                      loading="lazy"
+                      alt=""
+                      src="./public/frame-56.svg"
+                    />
+
+                    <img
+                      class="frame-child33"
+                      loading="lazy"
+                      alt=""
+                      src="./public/frame-56.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="upload-label" id="popupuploadLabel">
+              <div class="upload7">UPLOAD</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-1">
+      <div class="frame-parent">
+        <header class="a-fri-food-brand-wrapper">
+          <div class="a-fri-food-brand">
+            <div class="collection-wrapper">
+              <div class="collection" id="cOLLECTIONText">COLLECTION</div>
+            </div>
+            <div class="frame-group">
+              <div class="checkout-wrapper">
+                <div class="checkout">CHECKOUT</div>
+              </div>
+              <div class="about-wrapper">
+                <div class="about" id="aBOUTText">ABOUT</div>
+              </div>
+              <div class="frame-container">
+                <div class="afrifood-wrapper">
+                  <b class="afrifood">AFRIFOOD </b>
+                </div>
+                <div class="a-fri-food-products-parent">
+                  <div class="a-fri-food-products">
+                    <div class="frame-div">
+                      <div class="upload-wrapper" id="groupContainer">
+                        <div class="upload">
+                          <b class="log-out">LOG OUT </b>
+                        </div>
+                      </div>
+                      <img
+                        class="frame-child"
+                        loading="lazy"
+                        alt=""
+                        src="./public/group-1@2x.png"
+                      />
+                    </div>
+                  </div>
+                  <button class="image" id="image">
+                    <div class="upload1">UPLOAD</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="online-food-marketplace-collec-parent">
+          <div class="online-food-marketplace-container">
+            <p class="online-food-marketplace">ONLINE FOOD MARKETPLACE</p>
+            <p class="collections">Collections</p>
+          </div>
+          <img
+            class="icon"
+            loading="lazy"
+            alt=""
+            src="./public/9886646-1@2x.png"
+          />
+        </div>
+      </div>
+     
+
+    <script>
+      var popupuploadLabel = document.getElementById("popupuploadLabel");
+      if (popupuploadLabel) {
+        popupuploadLabel.addEventListener("click", function (e) {
+          window.location.href = "./desktop.html";
+        });
+      }
+      
+      var cOLLECTIONText = document.getElementById("cOLLECTIONText");
+      if (cOLLECTIONText) {
+        cOLLECTIONText.addEventListener("click", function () {
+          var anchor = document.querySelector(
+            "[data-scroll-to='discoverOurProducts']"
+          );
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+          }
+        });
+      }
+      
+      var aBOUTText = document.getElementById("aBOUTText");
+      if (aBOUTText) {
+        aBOUTText.addEventListener("click", function (e) {
+          // Please sync "About" to the project
+        });
+      }
+      
+      var groupContainer = document.getElementById("groupContainer");
+      if (groupContainer) {
+        groupContainer.addEventListener("click", function (e) {
+          // Please sync "Login" to the project
+        });
+      }
+      
+      var image = document.getElementById("image");
+      if (image) {
+        image.addEventListener("click", function () {
+          var popup = document.getElementById("uploadPopup");
+          if (!popup) return;
+          var popupStyle = popup.style;
+          if (popupStyle) {
+            popupStyle.display = "flex";
+            popupStyle.zIndex = 100;
+            popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+            popupStyle.alignItems = "center";
+            popupStyle.justifyContent = "center";
+          }
+          popup.setAttribute("closable", "");
+      
+          var onClick =
+            popup.onClick ||
+            function (e) {
+              if (e.target === popup && popup.hasAttribute("closable")) {
+                popupStyle.display = "none";
+              }
+            };
+          popup.addEventListener("click", onClick);
+        });
+      }
+      
+      var frameButton = document.getElementById("frameButton");
+      if (frameButton) {
+        frameButton.addEventListener("click", function () {
+          var anchor = document.querySelector(
+            "[data-scroll-to='browseOurCategories']"
+          );
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+          }
+        });
+      }
+      </script>
+  </body>
+</html>
+
+

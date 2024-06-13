@@ -1,0 +1,1444 @@
+.collection {
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 77px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.index {
+  top: 100px;
+  
+}
+
+footer {
+  top: 1865px;
+  position: absolute;
+  left: 200px;
+}
+
+.container.index {
+  color: black;
+  overflow: visible; /* Ensure overflow is visible */
+  height: auto; /* Ensure height is auto to accommodate content */
+  
+}
+
+#welcome-to {
+  position: relative;
+  left: -80px;
+  top: 80px
+}
+
+#we-are-an {
+  position: relative;
+  margin-left: -110px;
+  top: 100px
+}
+
+.collection-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) 0 0;
+}
+.checkout {
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 68px;
+}
+.checkout-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) 0 0;
+}
+.about {
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 43px;
+  cursor: pointer;
+}
+.about-wrapper {
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-xl) 0 0;
+  box-sizing: border-box;
+}
+.afrifood {
+  position: relative;
+  display: inline-block;
+  min-width: 103px;
+  white-space: nowrap;
+}
+.afrifood-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs) 0 0;
+}
+.log-out {
+  position: relative;
+  display: inline-block;
+  min-width: 54px;
+}
+.upload,
+.upload-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.upload {
+  border-radius: var(--br-8xs);
+  background-color: var(--color-firebrick);
+  overflow: hidden;
+  padding: var(--padding-7xs) var(--padding-4xs) var(--padding-8xs);
+  white-space: nowrap;
+}
+.upload-wrapper {
+  cursor: pointer;
+}
+.frame-child {
+  height: 32px;
+  width: 28px;
+  position: relative;
+  object-fit: cover;
+}
+.a-fri-food-products,
+.frame-div {
+  display: flex;
+  justify-content: flex-start;
+}
+.frame-div {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--gap-6xl);
+}
+.a-fri-food-products {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-11xs) 0 0;
+}
+.upload1 {
+  position: relative;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 49px;
+}
+.a-fri-food-products-parent,
+.frame-container,
+.image {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.image {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-41xl) var(--padding-sm);
+  background-color: var(--color-teal);
+  border-radius: var(--br-8xs);
+  overflow: hidden;
+  justify-content: flex-start;
+}
+.image:hover,
+.shop-now-wrapper:hover,
+.upload-label:hover {
+  background-color: var(--color-darkcyan);
+}
+.a-fri-food-products-parent,
+.frame-container {
+  max-width: 100%;
+}
+.a-fri-food-products-parent {
+  justify-content: flex-start;
+  gap: var(--gap-12xl);
+  font-size: var(--font-size-xs);
+  color: var(--color-white);
+}
+.frame-container {
+  width: 712px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  font-size: var(--font-size-xl);
+}
+.frame-group {
+  justify-content: flex-start;
+  gap: var(--gap-63xl);
+}
+.a-fri-food-brand,
+.a-fri-food-brand-wrapper,
+.frame-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.a-fri-food-brand {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.a-fri-food-brand-wrapper {
+  align-self: stretch;
+  justify-content: flex-end;
+  padding: 0 var(--padding-41xl) 0 var(--padding-48xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+}
+.collections,
+.online-food-marketplace {
+  margin: 0;
+}
+.icon,
+.online-food-marketplace-container {
+  position: absolute;
+  top: 69px;
+  left: 427px;
+}
+.icon {
+  top: 10px;
+  left: 0px;
+  width: 1900px;
+  height: 222px;
+  object-fit: cover;
+  
+}
+.online-food-marketplace-collec-parent {
+  align-self: stretch;
+  height: 192px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.frame-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-38xl);
+  box-sizing: border-box;
+  gap: var(--gap-6xl);
+  max-width: 100%;
+  font-size: var(--font-size-xs);
+}
+.hi-foodie {
+  top: 100px;
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 81px;
+}
+.component-main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-8xs);
+}
+.welcome-to {
+  font-size: var(--font-size-41xl);
+  
+}
+.welcome-to,
+.welcome-to-afrifood1 {
+  white-space: pre-wrap;
+}
+.welcome-to-afrifood {
+  margin-block-start: 0;
+  margin-block-end: 12px;
+}
+.blank-line1 {
+  font-size: var(--font-size-xs);
+}
+.blank-line-container {
+  white-space: pre-wrap;
+}
+.blank-line {
+  margin-block-start: 0;
+  margin-block-end: 12px;
+}
+.at-afrifood-we {
+  margin: 0;
+  line-height: 165%;
+}
+.welcome-to-afrifood-container {
+  position: relative;
+  font-weight: 500;
+  z-index: 3;
+}
+.shop-now {
+  
+  position: relative;
+  left: -90px;
+  top: 250px
+
+ 
+}
+.shop-now-wrapper,
+.welcome-to-afrifood-at-afrifoo-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.shop-now-wrapper {
+  
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-32xl) var(--padding-sm);
+  background-color: var(--color-teal);
+  border-radius: var(--br-8xs);
+  overflow: hidden;
+  flex-direction: row;
+  white-space: nowrap;
+  z-index: 3;
+}
+.welcome-to-afrifood-at-afrifoo-parent {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-base);
+}
+.component-main-parent,
+.desktop-1-inner {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.component-main-parent {
+  
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-6xl);
+}
+.desktop-1-inner {
+  width: 723px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 125px;
+  box-sizing: border-box;
+}
+.ewe-palm-1 {
+  height: 2463px;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: 2;
+}
+.join-our-community {
+  width: 558px;
+  position: absolute; /* Add this line */
+  top: 500px;
+  display: inline-block;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for element width */
+  text-align: center; /* Center text within the element */
+}
+
+.our-categories {
+  
+  position: absolute; /* Ensure it uses absolute positioning */
+  top: 600px; /* Adjust this value as needed for vertical positioning */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for element width */
+  text-align: center; /* Center text within the element */
+}
+
+.our-categories img {
+  border-radius: 10px; /* Optional: Add some border-radius for better appearance */
+  margin-bottom: 15px; /* Optional: Add some space between images */
+}
+
+.our-products {
+  
+  position: absolute; /* Ensure it uses absolute positioning */
+  top: 1000px; /* Adjust this value as needed for vertical positioning */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for element width */
+  text-align: center; /* Center text within the element */
+}
+
+.our-products img {
+  border-radius: 10px; /* Optional: Add some border-radius for better appearance */
+  margin-bottom: 15px; /* Optional: Add some space between images */
+  border: 20px;
+}
+
+
+.ewe-palm-1-parent {
+  position: absolute;
+  top: 0;
+  left: -1028px;
+  width: 2463px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+}
+.frame-item {
+  position: absolute;
+  top: 60px;
+  left: 500px;
+  overflow: hidden;
+  border-radius: 2%; /* Make it a circle */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.frame-item-img {
+  width: 100%; /* Ensure the image fills the parent container */
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.frame-inner,
+.image-1-icon,
+.image-3-icon,
+.image-4-icon {
+  position: absolute;
+  top: 1096px;
+  border-radius: var(--br-3xs);
+  width: 255px;
+  height: 255px;
+  object-fit: cover;
+  z-index: 3;
+}
+.frame-inner {
+  left: 154px;
+  overflow: hidden;
+}
+.image-1-icon,
+.image-3-icon,
+.image-4-icon {
+  left: 443px;
+}
+.image-3-icon,
+.image-4-icon {
+  left: 1021px;
+}
+.image-4-icon {
+  left: 732px;
+}
+.frame-parent1 {
+  width: 100%;
+  height: 2463px;
+  position: absolute;
+  margin: 0 !important;
+  top: 296px;
+  right: 0;
+  left: 0;
+}
+.h1,
+.h11 {
+  margin: 0;
+  width: 49px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  z-index: 4;
+}
+.frame-wrapper,
+.parent,
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: -67px;
+}
+.frame-wrapper,
+.parent {
+  max-width: 100%;
+}
+.parent {
+  width: 634px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.frame-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 23px 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+.discover-our-products {
+  margin-block-start: 0;
+  margin-block-end: 15px;
+}
+.take-a-look {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+.discover-our-products-container {
+  align-self: stretch;
+  position: relative;
+  color: var(--color-black);
+  z-index: 5;
+  font-size: var(--font-size-41xl);
+}
+.component-component,
+.frame-parent2 {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.frame-parent2 {
+  width: 899px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component-component {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 316px var(--padding-2xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-109xl);
+  color: var(--color-gray-100);
+}
+.new-arrivals {
+  position: relative;
+  display: inline-block;
+  min-width: 108px;
+  z-index: 3;
+}
+.component-component-component {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-lgi);
+}
+.image-logo-icon {
+  align-self: stretch;
+  height: 4px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+  z-index: 3;
+}
+.component-component-component-parent {
+  width: 1092px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+  max-width: 100%;
+}
+.desktop-1-child {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 70px var(--padding-21xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+}
+.browse-our-categories {
+  margin-block-start: 0;
+  margin-block-end: 15px;
+}
+.easily-find-what {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+.browse-our-categories-container {
+  position: relative;
+  z-index: 3;
+}
+.browse-our-categories-easily-f-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-2xl) 0 var(--padding-xl);
+}
+.component-1-icon {
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  min-height: 350px;
+  z-index: 3;
+}
+.image-1-icon1,
+.image-8-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image-8-icon {
+  border-radius: var(--br-3xs);
+  z-index: 1;
+}
+.component-2 {
+  align-self: stretch;
+  height: 350px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 3;
+}
+.component-2-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.component-3-icon {
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  min-height: 350px;
+  z-index: 3;
+}
+.component-1-parent {
+  align-self: stretch;
+  display: grid;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-22xl);
+  max-width: 100%;
+  grid-template-columns: repeat(3, minmax(270px, 1fr));
+}
+.component-4-icon {
+  align-self: stretch;
+  height: 350px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 3;
+}
+.component-4-wrapper {
+  width: 364px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-sm) 0 0;
+  box-sizing: border-box;
+  min-width: 237px;
+  max-width: 100%;
+}
+.component-5-icon,
+.component-6-icon {
+  width: 350px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  min-height: 350px;
+  max-width: 100%;
+  z-index: 3;
+}
+.frame-parent3,
+.frame-parent4 {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.frame-parent4 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--gap-20xl);
+  max-width: 100%;
+}
+.frame-parent3 {
+  flex-direction: column;
+  gap: var(--gap-34xl);
+}
+.frame-parent3,
+.image-container,
+.shop-area {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.shop-area {
+  width: 1142px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-27xl);
+}
+.image-container {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 122px var(--padding-11xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-41xl);
+}
+.od1 {
+  text-decoration: underline;
+}
+.od {
+  color: inherit;
+}
+.afrifood1 {
+  margin: 0;
+}
+.blank-line4 {
+  text-decoration: underline;
+}
+.blank-line3 {
+  color: inherit;
+}
+.blank-line2 {
+  margin: 0;
+}
+.at-food {
+  line-height: 121.4%;
+}
+.e-were-passionate {
+  line-height: 139%;
+}
+.at-foode-were-passionate-abo {
+  margin: 0;
+}
+.afrifood-at-foode-container {
+  align-self: stretch;
+  position: relative;
+}
+.sign-up-area,
+.sign-up-area1,
+.sign-up-area2 {
+  height: 34px;
+  width: 34px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 34px;
+}
+.afrifood-at-foode-were-passi-parent,
+.sign-up-area-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mid);
+}
+.afrifood-at-foode-were-passi-parent {
+  width: 467px;
+  flex-direction: column;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-6xl);
+  max-width: 100%;
+}
+.blank-line5,
+.blank-line6,
+.blank-line7,
+.contacts,
+.jones-st-something,
+.p,
+.saleafrifood {
+  margin: 0;
+}
+.contacts-saleafrifood-1-container {
+  position: relative;
+  line-height: 19px;
+}
+.email-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-7xs) 0 0;
+}
+.sign-up-for {
+  color: var(--color-black);
+}
+.sign-up-for-the-latest-deals1 {
+  font-family: var(--font-inter);
+}
+.sign-up-for-the-latest-deals {
+  margin: 0;
+}
+.blank-line10 {
+  color: var(--color-black);
+}
+.blank-line9 {
+  font-family: var(--font-inter);
+}
+.blank-line8 {
+  margin: 0;
+}
+.blank-line13 {
+  color: var(--color-black);
+}
+.blank-line12 {
+  font-family: var(--font-inter);
+}
+.blank-line11 {
+  margin: 0;
+}
+.blank-line16 {
+  color: var(--color-black);
+}
+.blank-line15 {
+  font-family: var(--font-inter);
+}
+.blank-line14 {
+  margin: 0;
+}
+.blank-line18 {
+  font-family: var(--font-inter);
+}
+.blank-line17 {
+  margin: 0;
+}
+.by-subscribing-i-agree-to-the1 {
+  font-weight: 500;
+}
+.terms-of-use2 {
+  text-decoration: underline;
+}
+.terms-of-use1 {
+  font-weight: 500;
+}
+.terms-of-use {
+  color: inherit;
+}
+.by-subscribing-i-agree-to-the {
+  margin: 0;
+}
+.and-have-read-the {
+  font-weight: 500;
+}
+.privacy-statement2 {
+  text-decoration: underline;
+}
+.privacy-statement1 {
+  font-weight: 500;
+}
+.privacy-statement {
+  color: inherit;
+}
+.and-have-read-the-privacy-stat {
+  margin: 0;
+}
+.email-address,
+.sign-up-for-container {
+  line-height: 121.4%;
+  display: inline-block;
+}
+.sign-up-for-container {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 100%;
+  height: 100%;
+}
+.email-address {
+  width: 123px;
+  border: 0;
+  outline: 0;
+  font-weight: 500;
+  font-family: var(--font-inter);
+  font-size: var(--font-size-lg);
+  background-color: transparent;
+  height: 22px;
+  position: relative;
+  color: var(--color-gray-100);
+  text-align: left;
+  padding: 0;
+}
+.email-address-wrapper {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  border-radius: var(--br-8xs);
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 282px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-lgi);
+
+}
+.sign-up-for-the-latest-deals-b-parent {
+  align-self: stretch;
+  height: 154px;
+  position: relative;
+}
+.call-to-action {
+  width: 381px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-11xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  color: var(--color-gray-100);
+}
+.a-fri-food-message,
+.a-fri-food-message-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.a-fri-food-message {
+  width: 1222px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.a-fri-food-message-wrapper {
+  position: absolute;
+  top: 1700px;
+}
+.shop-about-contact {
+  position: relative;
+  line-height: 22px;
+  white-space: pre-wrap;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) 0 0;
+}
+.image-11-icon {
+  height: 27px;
+  width: 250px;
+  position: relative;
+  object-fit: cover;
+  padding-left: 30px;
+}
+.contact-info-parent,
+.desktop-1 {
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  font-family: var(--font-inter);
+}
+.contact-info-parent {
+  align-self: stretch;
+  background-color: var(--color-gray-200);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--padding-sm) var(--padding-24xl) var(--padding-18xl)
+    var(--padding-45xl);
+  gap: var(--gap-xl);
+  color: var(--color-white);
+}
+.desktop-1 {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-17xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-17xl);
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--color-black);
+}
+@media screen and (max-width: 1200px) {
+  .frame-group {
+    gap: var(--gap-22xl);
+  }
+  .a-fri-food-message {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .a-fri-food-message-wrapper {
+    padding-left: var(--padding-21xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .h1,
+  .h11 {
+    font-size: var(--font-size-32xl);
+  }
+  .component-1-parent {
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(270px, 468px));
+  }
+  .image-container {
+    padding-bottom: 79px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frame-group {
+    gap: var(--gap-xl);
+  }
+  .a-fri-food-brand-wrapper {
+    padding-left: var(--padding-14xl);
+    padding-right: var(--padding-11xl);
+    box-sizing: border-box;
+  }
+  .component-component,
+  .desktop-1-inner {
+    padding-bottom: 81px;
+    box-sizing: border-box;
+  }
+  .component-component {
+    padding-bottom: 205px;
+  }
+  .component-1-icon,
+  .component-3-icon {
+    width: 100%;
+  }
+  .component-1-parent {
+    gap: var(--gap-xl);
+    grid-template-columns: minmax(270px, 1fr);
+  }
+  .frame-parent4 {
+    gap: var(--gap-lgi);
+  }
+  .frame-parent3 {
+    gap: var(--gap-7xl);
+  }
+  .shop-area {
+    gap: var(--gap-4xl);
+  }
+  .image-container {
+    padding-bottom: var(--padding-32xl);
+    box-sizing: border-box;
+  }
+  .contact-info-parent {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-2xl);
+    box-sizing: border-box;
+  }
+  .desktop-1 {
+    gap: var(--gap-lg);
+  }
+}
+@media screen and (max-width: 450px) {
+  .a-fri-food-products-parent {
+    gap: var(--gap-mini);
+  }
+  .h1,
+  .h11 {
+    font-size: var(--font-size-13xl);
+  }
+}
+.upload6 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 122px;
+}
+.upload-btn {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  margin: 0 !important;
+  top: 342px;
+  right: 406px;
+  border-radius: 50%;
+  background-color: var(--color-gainsboro);
+  border: 0 solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.upload-btn1 {
+  top: 342px;
+  right: 305px;
+}
+.frame-child24,
+.frame-child25,
+.upload-btn1,
+.upload-btn2 {
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  margin: 0 !important;
+  border-radius: 50%;
+  background-color: var(--color-gainsboro);
+  border: 0 solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.upload-btn2 {
+  top: 342px;
+  right: 210px;
+}
+.frame-child24,
+.frame-child25 {
+  right: 105px;
+  bottom: 57px;
+}
+.frame-child25 {
+  right: 17px;
+}
+.blank-line73 {
+  margin: 0;
+}
+.name3 {
+  font-size: var(--font-size-sm);
+}
+.span1 {
+  white-space: pre-wrap;
+}
+.name2 {
+  font-size: var(--font-size-lg);
+}
+.name2,
+.price,
+.street-address2,
+.tags {
+  margin: 0;
+}
+.tags {
+  white-space: pre-wrap;
+}
+.name-price-street-container {
+  height: 222px;
+  flex: 1;
+  position: relative;
+  line-height: 302%;
+  display: inline-block;
+}
+.address-details {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-4xs);
+}
+.category,
+.description1 {
+  margin: 0;
+}
+.category-description {
+  position: relative;
+  line-height: 302%;
+}
+.address-details-parent,
+.ellipse-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.address-details-parent {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-mid);
+}
+.ellipse-container {
+  width: 279px;
+  flex-direction: row;
+  position: relative;
+}
+.frame-child26,
+.frame-child27,
+.frame-child28,
+.frame-child29 {
+  border: 1px solid var(--color-gray-300);
+  outline: 0;
+  background-color: var(--color-dimgray);
+  align-self: stretch;
+  height: 33px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-width: 250px;
+}
+.frame-parent28 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 9px;
+}
+.oil-meat-powder {
+  position: relative;
+  line-height: 302%;
+  white-space: pre-wrap;
+  z-index: 1;
+}
+.circle-marker-child {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-gainsboro);
+  border: 0 solid var(--color-gray-100);
+  box-sizing: border-box;
+}
+.circle-marker,
+.food-type-label,
+.food-type-label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.circle-marker {
+  flex-direction: column;
+  padding: var(--padding-4xs) 0 0;
+}
+.food-type-label,
+.food-type-label-wrapper {
+  flex-direction: row;
+  max-width: 100%;
+}
+.food-type-label {
+  gap: var(--gap-9xs);
+}
+.food-type-label-wrapper {
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.snapshot-box {
+  align-self: stretch;
+  height: 95px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-dimgray);
+  border: 1px solid var(--color-gray-300);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.snapshot {
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 55px;
+}
+.frame-child30 {
+  align-self: stretch;
+  width: 109px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  max-height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 103px;
+}
+.frame-child31 {
+  height: 99px;
+  width: 1px;
+  position: relative;
+  object-fit: contain;
+}
+.frame-child32,
+.frame-child33 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-8xs);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  min-height: 103px;
+}
+.frame-parent31 {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.frame-parent30 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.frame-parent29,
+.frame-wrapper9 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-11xs);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frame-parent29 {
+  flex-direction: column;
+  padding: 0 0 var(--padding-11xl);
+  gap: 18.7px;
+}
+.upload7 {
+  position: relative;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 49px;
+}
+.upload-label {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-mini) var(--padding-41xl) var(--padding-sm);
+  background-color: var(--color-teal);
+  border-radius: var(--br-8xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-parent27,
+.frame-wrapper8 {
+  flex-direction: column;
+  max-width: 100%;
+}
+.frame-parent27 {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-mid);
+}
+.frame-wrapper8 {
+  flex: 1;
+  padding: 63px 0 0;
+  box-sizing: border-box;
+  margin-left: -146px;
+  font-size: var(--font-size-xs);
+}
+.frame-parent26,
+.frame-wrapper8,
+.upload-inner,
+.upload5 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-parent26 {
+  flex: 1;
+  flex-direction: row;
+  max-width: 100%;
+}
+.upload-inner,
+.upload5 {
+  box-sizing: border-box;
+  text-align: left;
+  font-family: var(--font-inter);
+}
+.upload-inner {
+  width: 691px;
+  flex-direction: row;
+  padding: 0 var(--padding-lg);
+  max-width: 100%;
+  font-size: var(--font-size-sm);
+  color: var(--color-black);
+}
+.upload5 {
+  width: 842px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  padding: var(--padding-11xl) 68px var(--padding-40xl);
+  gap: var(--gap-3xl);
+  line-height: normal;
+  letter-spacing: normal;
+  max-width: 90%;
+  max-height: 90%;
+  font-size: var(--font-size-16xl);
+  color: #e33629;
+}
+@media screen and (max-width: 750px) {
+  .upload6 {
+    font-size: var(--font-size-9xl);
+  }
+}
+@media screen and (max-width: 675px) {
+  .frame-child31 {
+    width: 100%;
+    height: 1px;
+  }
+  .frame-parent30 {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .upload6 {
+    font-size: var(--font-size-2xl);
+  }
+  .frame-parent31 {
+    gap: var(--gap-base);
+  }
+  .upload5 {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

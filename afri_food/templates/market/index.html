@@ -1,0 +1,374 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container index">
+  <div class="scrolling-text-container">
+    <div class="scrolling-text">
+      Welcome to AfriFood, your premier destination for authentic indigenous African foods.
+       We proudly offer a wide range of traditional delicacies, including Smoked Catfish, Dried Black and White Ponmo,
+        Palm Oil, Groundnut Oil, Crayfish, etc. At AfriFood, we ship items to different parts of the world promptly. Shop with us today!
+        We are open 24/7. Reach us on mobile: 
+        +234 915 510 2965
+    </div>
+  </div>
+  <style>
+    .scrolling-text-container {
+      width: 100%;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      background-color: #f8f9fa; /* Optional: Adds background color */
+      padding: 10px 0; /* Optional: Adds padding */
+    }
+  
+    .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 15s linear infinite;
+      font-size: 1.2rem; /* Adjust the font size as needed */
+    }
+  
+    @keyframes scroll-text {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  
+    .product-image {
+      border: 1px solid black; /* Add black border */
+      border-radius: 5px; /* Optional: Add border radius */
+      margin-bottom: 10px; /* Add some space between images and text */
+    }
+  </style>
+  <div class="">
+        <br>
+        <br>
+        <h1 id="welcome-to">Welcome to AfriFood  {% if request.user.is_authenticated %} {{user.username}} {% endif %}</h1>
+     
+      
+      <p id="we-are-an" style="white-space: pre-wrap;">
+        Join our community of buyers and sellers and experience the
+        convenience of online food shopping. Whether you're looking for
+        fresh produce, canned goods, or baked goods, we have it all at
+        AFRIFOOD
+      </p>
+    
+    <div class="shop-now">
+      <a href="market">
+      <div style="border-radius: 20px; margin-left: 600px; margin-top: -150px;" class="btn btn-success">SHOP NOW</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="frame-item">
+    <img src="/media/images/premiercover.png" alt="AfriFood" class="frame-item-img">
+  </div>
+
+  <div class="join-our-community">
+    "Join our community of buyers and sellers and experience the
+    convenience of online food shopping. Whether you're looking for
+    fresh produce, canned goods, or baked goods, we have it all at
+    AFRIFOOD"
+  </div>
+
+  <br>
+  <br>
+
+   <!-- Browse Our Categories Section -->
+   <div class="our-categories text-center">
+    <h2>Browse Our Categories</h2>
+    <p>
+      Join our community of buyers and sellers and experience the
+      convenience of online food shopping. Whether you're looking for
+      fresh produce, canned goods, or baked goods, we have it all at
+      AFRIFOOD
+    </p>
+    <br>
+    <div class="row">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <a href="{% url 'category_detail' slug='seafood' %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="Catfish"
+            src="/media/images/fishcat.jpg"
+          />
+          <span>Seafood</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <a href="{% url 'category_detail' slug='cow-skin-dried-ponmo' %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="Ponmo"
+            src="/media/images/pon.png"
+          />
+          <span>Ponmo</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <a href="{% url 'category_detail' slug='seafood' %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="Prawn"
+            src="/media/images/cra.jpg"
+          />
+          <span>Crayfish</span>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        <a href="{% url 'category_detail' slug='cooking-oils-epo-pupa-and-ororo' %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="Palm Oil"
+            src="/media/images/pp.jpg"
+          />
+          <span>Cooking Oils</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+   <!-- Browse Our Categories Section -->
+   <div class="our-products text-center">
+    <h2>Discover Our Products</h2>
+    <p>
+      Join our community of buyers and sellers and experience the
+      convenience of online food shopping. Whether you're looking for
+      fresh produce, canned goods, or baked goods, we have it all at
+      AFRIFOOD
+    </p>
+    <br>
+    <div class="row">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        {% for oil in recent_oils %}
+          {% if oil.images.exists %}
+        <a href="{% url 'product_detail' model=oil.model_name id=oil.id %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="{{oil.title}}"
+            src="{{ oil.images.first.image.url }}"
+          />
+          
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        {% for crayfish in recent_crayfish %}
+          {% if crayfish.images.exists %}
+          <a href="{% url 'product_detail' model=crayfish.model_name id=crayfish.id %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="{{crayfish.title}}"
+            src="{{ crayfish.images.first.image.url }}"
+          />
+          
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        {% for catfish in recent_catfish %}
+          {% if catfish.images.exists %}
+          <a href="{% url 'product_detail' model=catfish.model_name id=catfish.id %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="{{catfish.title}}"
+            src="{{ catfish.images.first.image.url }}"
+          />
+          
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+        {% for ponmo in recent_ponmo_by_kg %}
+          {% if ponmo.images.exists %}
+          <a href="{% url 'product_detail' model=ponmo.model_name id=ponmo.id %}" class="d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            loading="lazy"
+            alt="{{ponmo.title}}"
+            src="{{ ponmo.images.first.image.url }}"
+          />
+          
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div>
+    <a href="market">
+    <button class="btn btn-success" style="position: absolute; top: 1420px">See More</button>
+    </a>
+  </div>
+  <div class="a-fri-food-message-wrapper">
+    <div class="a-fri-food-message">
+      <div class="afrifood-at-foode-were-passi-parent">
+        <div class="afrifood-at-foode-container">
+          <p class="afrifood1">
+            <b>AFriFood </b>
+            <a
+              class="od"
+              href="https://10web-site.ai/75/big-spaniel/"
+              target="_blank"
+            >
+              <b>
+                <span class="od1"></span>
+              </b>
+            </a>
+          </p>
+          <p class="blank-line2">
+            <a
+              class="blank-line3"
+              href="https://10web-site.ai/75/big-spaniel/"
+              target="_blank"
+            >
+              
+            </a>
+          </p>
+          <br>
+          <p class="at-foode-were-passionate-abo">
+            <span>
+              <span class="at-food"></span>
+              <span class="e-were-passionate">At AfriFood, we’re passionate about connecting buyers with sellers of
+                fresh food. If you’re interested in selling your fresh
+                produce, canned goods, or baked goods with us, sign up today
+                and start selling!</span
+              >
+            </span>
+          </p>
+        </div>
+        <br>
+        <div class="sign-up-area-parent">
+          <img
+            class="sign-up-area"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-40.svg"
+          />
+
+          <img
+            class="sign-up-area1"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-41.svg"
+          />
+
+          <img
+            class="sign-up-area2"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/frame-42.svg"
+          />
+        </div>
+      </div>
+      <div class="email-field">
+        <div class="contacts-saleafrifood-1-container">
+          <p class="contacts">
+            <b>Contacts:</b>
+          </p>
+          <p class="blank-line5">
+            <b>&nbsp;</b>
+          </p>
+          <p class="saleafrifood">sales@Afrifood.com</p>
+          <p class="blank-line6">&nbsp;</p>
+          <p class="p">+234 915 510 2965</p>
+          <p class="blank-line7">&nbsp;</p>
+          <p class="jones-st-something">Osogbo, Osun State</p>
+        </div>
+      </div>
+      <div class="call-to-action">
+        <div class="sign-up-for-the-latest-deals-b-parent">
+          <div class="sign-up-for-container">
+            <p class="sign-up-for-the-latest-deals">
+              <b class="sign-up-for-the-latest-deals1">
+                <span class="sign-up-for"
+                  >Sign up for the latest deals</span
+                >
+              </b>
+            </p>
+            <p class="blank-line8">
+              <b class="blank-line9">
+                <span class="blank-line10">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line11">
+              <b class="blank-line12">
+                <span class="blank-line13">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line14">
+              <b class="blank-line15">
+                <span class="blank-line16">&nbsp;</span>
+              </b>
+            </p>
+            <p class="blank-line17">
+              <span>
+                <b class="blank-line18">&nbsp;</b>
+              </span>
+            </p>
+            <p class="by-subscribing-i-agree-to-the">
+              <span>
+                <span class="by-subscribing-i-agree-to-the1"
+                  >By subscribing, I agree to the 
+                </span>
+              </span>
+              <a
+                class="terms-of-use"
+                href="https://www.groupon.com/terms"
+                target="_blank"
+              >
+                <span>
+                  <span class="terms-of-use1">
+                    <span class="terms-of-use2">Terms of Use </span>
+                  </span>
+                </span>
+              </a>
+            </p>
+            <p class="and-have-read-the-privacy-stat">
+              <span>
+                <span class="and-have-read-the">and have read the  </span>
+              </span>
+              <a
+                class="privacy-statement"
+                href="https://privacy.groupon.com/policies/en-US"
+                target="_blank"
+              >
+                <span>
+                  <span class="privacy-statement1">
+                    <span class="privacy-statement2"
+                      >Privacy Statement.</span
+                    >
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div class="email-address-wrapper">
+            <input
+              class="email-address"
+              placeholder="Email Address"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add more text elements here if needed -->
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'market/layout.html' %}
+{% block body %}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="alert alert-success text-center" role="alert">
+        <h4 class="alert-heading">Order Placed Successfully!</h4>
+        <p>Thank you for your purchase. Your order has been placed successfully and is being processed.</p>
+        <hr>
+        <p class="mb-0">We will contact you shortly via email: {{ user.email }} or phone number: {{ user.phone_number }}</p>
+        <a href="{% url 'index' %}" class="btn btn-primary mt-3">Return to Home</a>
+    </div>
+</div>
+
+{% endblock %}

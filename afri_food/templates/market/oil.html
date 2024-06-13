@@ -1,0 +1,132 @@
+{% extends 'market/layout.html' %}
+{% load static %}
+{% block body %}
+<div class="container" style="top: 100px;">
+  <div class="scrolling-text-container">
+    <div class="scrolling-text">
+      Our cooking oils are not just carefully sourced and healthy, they are cheap and affordable too!
+    </div>
+  </div>
+  <div style="margin-top: 70px;" class="row">  
+    <div class="col">  
+      <h2>Cooking Oils</h2>
+      <br>
+      <div class="row">  
+        {% for oil in oils %}
+          {% if oil.images.exists %}
+            <div class="col-3 d-flex flex-column align-items-center">
+              <br>
+              <a href="{% url 'product_detail' model=oil.model_name id=oil.id %}" class="d-flex flex-column align-items-center">
+                <img
+                  class="img-fluid product-image"
+                  loading="lazy"
+                  alt="{{oil.title}}"
+                  src="{{ oil.images.first.image.url }}"
+                />
+                <span>{{oil.title}}</span>
+              </a>
+              <hr>
+              {% if oil.in_cart %}
+                <a href="{% url 'remove_from_cart' oil.model_name oil.id %}" class="btn btn-danger mt-2">Remove from Cart</a>
+              {% else %}
+                <a href="{% url 'add_to_cart' oil.model_name oil.id %}" class="btn btn-primary mt-2">Add to Cart</a>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+  <!-- Pagination controls -->
+  <nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+      {% if oils.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1" aria-label="First">
+            <span aria-hidden="true">&laquo;&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ oils.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <span class="page-link" aria-label="First">&laquo;&laquo;</span>
+        </li>
+        <li class="page-item disabled">
+          <span class="page-link" aria-label="Previous">&laquo;</span>
+        </li>
+      {% endif %}
+
+      {% for num in oils.paginator.page_range %}
+        {% if oils.number == num %}
+          <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+        {% elif num > oils.number|add:'-3' and num < oils.number|add:'3' %}
+          <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if oils.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ oils.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ oils.paginator.num_pages }}" aria-label="Last">
+            <span aria-hidden="true">&raquo;&raquo;</span>
+          </a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <span class="page-link" aria-label="Next">&raquo;</span>
+        </li>
+        <li class="page-item disabled">
+          <span class="page-link" aria-label="Last">&raquo;&raquo;</span>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+
+<style>
+  .scrolling-text-container {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    background-color: #f8f9fa; /* Optional: Adds background color */
+    padding: 10px 0; /* Optional: Adds padding */
+  }
+
+  .scrolling-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-text 15s linear infinite;
+    font-size: 1.2rem; /* Adjust the font size as needed */
+  }
+
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .product-image {
+    border: 1px solid black; /* Add black border */
+    border-radius: 5px; /* Optional: Add border radius */
+    margin-bottom: 10px; /* Add some space between images and text */
+  }
+</style>
+{% endblock %}

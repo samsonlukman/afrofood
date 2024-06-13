@@ -1,0 +1,104 @@
+{% extends 'market/layout.html' %}
+{% block body %}
+    <div class="upload5">
+      <h1 class="upload6">Upload</h1>
+      <div class="upload-btn"></div>
+      <div class="upload-btn1"></div>
+      <div class="upload-btn2"></div>
+      <section class="upload-inner">
+        <div class="frame-parent26">
+          <div class="ellipse-container">
+            <div class="frame-child24"></div>
+            <div class="frame-child25"></div>
+            <div class="address-details-parent">
+              <div class="address-details">
+                <div class="name-price-street-container">
+                  <p class="blank-line73">&nbsp;</p>
+                  <p class="name2">
+                    <span class="name3">Name* </span>
+                    <span class="span1"> </span>
+                  </p>
+                  <p class="price">Price*</p>
+                  <p class="street-address2">Street address</p>
+                  <p class="tags">Tags</p>
+                </div>
+              </div>
+              <div class="category-description">
+                <p class="category">Category*</p>
+                <p class="description1">Description</p>
+              </div>
+            </div>
+          </div>
+          <div class="frame-wrapper8">
+            <div class="frame-parent27">
+              <div class="frame-parent28">
+                <input class="frame-child26" type="text" />
+
+                <input class="frame-child27" type="text" />
+
+                <input class="frame-child28" type="text" />
+
+                <input class="frame-child29" type="text" />
+              </div>
+              <div class="frame-parent29">
+                <div class="food-type-label-wrapper">
+                  <div class="food-type-label">
+                    <div class="oil-meat-powder">
+                      Oil Meat Powder Fruit Meat Spices
+                    </div>
+                    <div class="circle-marker">
+                      <div class="circle-marker-child"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="snapshot-box"></div>
+                <div class="snapshot">Snapshot</div>
+                <div class="frame-wrapper9">
+                  <div class="frame-parent30">
+                    <img
+                      class="frame-child30"
+                      loading="lazy"
+                      alt=""
+                      src="./public/frame-56.svg"
+                    />
+
+                    <img class="frame-child31" loading="lazy" alt="" />
+
+                    <div class="frame-parent31">
+                      <img
+                        class="frame-child32"
+                        loading="lazy"
+                        alt=""
+                        src="./public/frame-56.svg"
+                      />
+
+                      <img
+                        class="frame-child33"
+                        loading="lazy"
+                        alt=""
+                        src="./public/frame-56.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="upload-label" id="popupuploadLabel">
+                <div class="upload7">UPLOAD</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      var popupuploadLabel = document.getElementById("popupuploadLabel");
+      if (popupuploadLabel) {
+        popupuploadLabel.addEventListener("click", function (e) {
+          window.location.href = "./desktop.html";
+        });
+      }
+      </script>
+
+      {% endblock %}
+ 

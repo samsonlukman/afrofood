@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  line-height: normal;
+  background-image: url("/static/afri_food/public/ewe-palm-1@2x.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+}
+
+#index-suqlogo {
+  border-radius: 50%;
+  width: 50px; 
+ 
+}
+
+.top-page {
+  top: 0;
+  background-color: white;
+  color: black;
+  position: fixed;
+  z-index: 1000;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit; /* This will inherit the color of the parent element */
+}
+
+
+.popup-overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+}
+

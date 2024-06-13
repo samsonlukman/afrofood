@@ -1,0 +1,82 @@
+
+<!-- The Modal -->
+<div style="margin-top: 100px; border-radius: 80px; width: 100%; height: 100%; overflow: auto;" class="modal" id="registerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Register</h4>
+          <button type="button" class="btn btn-primary" onclick="closeModal('registerModal')">Close</button>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+          <form id="register-form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input class="form-control" autofocus type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="first_name" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="last_name" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="tel" name="phone_number" placeholder="Phone Number" required>
+              </div>
+            <input class="btn btn-primary" type="submit" value="Register">
+          </form>
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <p>Already have an account?<span class="btn btn-primary" onclick="openModal('loginModal')">Sign in</span></p>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch("{% url 'register' %}", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "X-CSRFToken": formData.get("csrfmiddlewaretoken")
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.redirect) {
+        window.location.href = data.redirect;
+      } else if (data.message) {
+        const errorMessage = document.getElementById("error-message");
+        errorMessage.textContent = data.message;
+        errorMessage.style.display = "block";
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  });
+</script>
+
+
