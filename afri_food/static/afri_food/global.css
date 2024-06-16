@@ -39,7 +39,7 @@ a {
 }
 
 /* mobile */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1320px){
   .large-screen-only {
       display: none;
   }
@@ -55,10 +55,6 @@ a {
 @media (min-width: 1321px) {
   .large-screen-only {
       display: block;
-  }
-
-  #nav {
-    display: none;
   }
 
   #nav {
