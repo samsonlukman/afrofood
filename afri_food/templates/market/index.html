@@ -2,84 +2,45 @@
 {% load static %}
 
 {% block body %}
+<div class="afri-image-container">
+  <img
+      class="icon img-fluid"
+      loading="lazy"
+      alt=""
+      src="/static/afri_food/public/9886646-1@2x.png"
+  />
+</div>
+
+
 <div class="container index">
-  <div class="scrolling-text-container">
-    <div class="scrolling-text">
-      Welcome to AfriFood, your premier destination for authentic indigenous African foods.
-       We proudly offer a wide range of traditional delicacies, including Smoked Catfish, Dried Black and White Ponmo,
-        Palm Oil, Groundnut Oil, Crayfish, etc. At AfriFood, we ship items to different parts of the world promptly. Shop with us today!
-        We are open 24/7. Reach us on mobile: 
-        +234 915 510 2965
-    </div>
-  </div>
-  <style>
-    .scrolling-text-container {
-      width: 100%;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      background-color: #f8f9fa; /* Optional: Adds background color */
-      padding: 10px 0; /* Optional: Adds padding */
-    }
-  
-    .scrolling-text {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-text 15s linear infinite;
-      font-size: 1.2rem; /* Adjust the font size as needed */
-    }
-  
-    @keyframes scroll-text {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  
-    .product-image {
-      border: 1px solid black; /* Add black border */
-      border-radius: 5px; /* Optional: Add border radius */
-      margin-bottom: 10px; /* Add some space between images and text */
-    }
-  </style>
   <div class="">
-        <br>
-        <br>
-        <h1 id="welcome-to">Welcome to AfriFood  {% if request.user.is_authenticated %} {{user.username}} {% endif %}</h1>
-     
-      
-      <p id="we-are-an" style="white-space: pre-wrap;">
-        Join our community of buyers and sellers and experience the
-        convenience of online food shopping. Whether you're looking for
-        fresh produce, canned goods, or baked goods, we have it all at
-        AFRIFOOD
-      </p>
-    
-    <div class="shop-now">
-      <a href="market">
-      <div style="border-radius: 20px; margin-left: 600px; margin-top: -150px;" class="btn btn-success">SHOP NOW</div>
+    <div class="welcome-and-shop">
+   <h3 class="afrifood-welcome">Welcome to AfriFood {% if request.user.is_authenticated %} {{user.username}} {% endif %}
+    <a href="market">
+    <p class="btn btn-success" style="margin-top: 10px;">SHOP NOW</p>
       </a>
+   </h3>
     </div>
+        <div class="frame-item img-fluid">
+          <img src="/media/images/premiercover.png" alt="AfriFood" class="frame-item-img">
+        </div>
+    
   </div>
 
-  <div class="frame-item">
-    <img src="/media/images/premiercover.png" alt="AfriFood" class="frame-item-img">
-  </div>
 
-  <div class="join-our-community">
-    "Join our community of buyers and sellers and experience the
-    convenience of online food shopping. Whether you're looking for
+  <div id="join" class="join-our-community">
+    <p class="">
+    Join our community of buyers and sellers and experience the convenience of online food shopping. Whether you're looking for
     fresh produce, canned goods, or baked goods, we have it all at
-    AFRIFOOD"
+    AFRIFOOD
+  </p>
   </div>
 
   <br>
   <br>
 
    <!-- Browse Our Categories Section -->
-   <div class="our-categories text-center">
+   <div id="categories" class="our-categories text-center">
     <h2>Browse Our Categories</h2>
     <p>
       Join our community of buyers and sellers and experience the
@@ -89,7 +50,7 @@
     </p>
     <br>
     <div class="row">
-      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-3">
         <a href="{% url 'category_detail' slug='seafood' %}" class="d-flex flex-column align-items-center">
           <img
             class="img-fluid"
@@ -100,7 +61,7 @@
           <span>Seafood</span>
         </a>
       </div>
-      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-3">
         <a href="{% url 'category_detail' slug='cow-skin-dried-ponmo' %}" class="d-flex flex-column align-items-center">
           <img
             class="img-fluid"
@@ -111,7 +72,7 @@
           <span>Ponmo</span>
         </a>
       </div>
-      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-3">
         <a href="{% url 'category_detail' slug='seafood' %}" class="d-flex flex-column align-items-center">
           <img
             class="img-fluid"
@@ -122,7 +83,7 @@
           <span>Crayfish</span>
         </a>
       </div>
-      <div class="col-6 col-md-3 d-flex flex-column align-items-center">
+      <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-3">
         <a href="{% url 'category_detail' slug='cooking-oils-epo-pupa-and-ororo' %}" class="d-flex flex-column align-items-center">
           <img
             class="img-fluid"
@@ -137,7 +98,7 @@
   </div>
 
    <!-- Browse Our Categories Section -->
-   <div class="our-products text-center">
+   <div id="discover" class="our-products text-center">
     <h2>Discover Our Products</h2>
     <p>
       Join our community of buyers and sellers and experience the
@@ -211,10 +172,10 @@
   </div>
   <div>
     <a href="market">
-    <button class="btn btn-success" style="position: absolute; top: 1420px">See More</button>
+    <button id="see-more" class="see-more btn-success">See More</button>
     </a>
   </div>
-  <div class="a-fri-food-message-wrapper">
+  <div id="footer-content" class="a-fri-food-message-wrapper">
     <div class="a-fri-food-message">
       <div class="afrifood-at-foode-were-passi-parent">
         <div class="afrifood-at-foode-container">
@@ -275,19 +236,25 @@
           />
         </div>
       </div>
+      
       <div class="email-field">
         <div class="contacts-saleafrifood-1-container">
-          <p class="contacts">
-            <b>Contacts:</b>
-          </p>
+         
           <p class="blank-line5">
             <b>&nbsp;</b>
           </p>
-          <p class="saleafrifood">sales@Afrifood.com</p>
-          <p class="blank-line6">&nbsp;</p>
-          <p class="p">+234 915 510 2965</p>
-          <p class="blank-line7">&nbsp;</p>
-          <p class="jones-st-something">Osogbo, Osun State</p>
+          <div>
+            <ul class="list-unstyled">
+              <li><h2>Contact Us</h2></li>
+              <span class="blank-line6">&nbsp;</span>
+              <li><i class="fas fa-envelope"></i> Email: <a href="mailto:info@afrifood.com">info@afrifood.com</a></li>
+              <span class="blank-line6">&nbsp;</span>
+              <li><i class="fas fa-phone"></i> Phone: +234 9155 102 965</li>
+              <span class="blank-line6">&nbsp;</span>
+              <li><i class="fas fa-map-marker-alt"></i> Address: Osogbo, Osun State</li>
+            </ul>
+          </div>
+         
         </div>
       </div>
       <div class="call-to-action">
@@ -368,6 +335,8 @@
       </div>
     </div>
   </div>
+</div>
+
   
   <!-- Add more text elements here if needed -->
 </div>

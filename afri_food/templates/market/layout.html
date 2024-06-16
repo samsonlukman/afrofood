@@ -12,8 +12,7 @@
     <link href="{% static 'afri_food/market.css' %}" rel="stylesheet">
     <link href="{% static 'afri_food/detail.css' %}" rel="stylesheet">
     <link href="{% static 'afri_food/upload.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <script src="{% static 'afri_food/script.js' %}"></script>
   
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -37,11 +36,9 @@
         text-decoration: none;
       }
     </style>
-  </head>
- 
-    <body style="  font-family: Display">
-      <script>
-        function checkAuthAndRedirect(event, text) {
+
+    <script>
+      function checkAuthAndRedirect(event, text) {
   event.preventDefault();
   alert(text);
 }
@@ -69,6 +66,95 @@ function closeModal(modalId) {
     modal.style.display = "none";
   }
 }
+
+
+
+  function getCookie(name){
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function(event) {
+        const productType = this.getAttribute('data-product-type');
+        const itemId = this.getAttribute('data-item-id');
+        const url = `/cart/add/${productType}/${itemId}/`;
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Item added to cart');
+            this.textContent = 'Remove from Cart';
+            this.classList.remove('btn-primary');
+            this.classList.add('btn-danger', 'remove-from-cart');
+            this.classList.remove('add-to-cart');
+          } else {
+            alert('Error adding item to cart.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error processing request.');
+        });
+      });
+    });
+
+    document.querySelectorAll('.remove-from-cart').forEach(button => {
+      button.addEventListener('click', function(event) {
+        const productType = this.getAttribute('data-product-type');
+        const itemId = this.getAttribute('data-item-id');
+        const url = `/cart_remove_from_cart/${productType}/${itemId}/`;
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Item removed from cart');
+            this.textContent = 'Add to Cart';
+            this.classList.remove('btn-danger');
+            this.classList.add('btn-primary', 'add-to-cart');
+            this.classList.remove('remove-from-cart');
+          } else {
+            alert('Error removing item.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error processing request.');
+        });
+      });
+    });
+  });
+
+
+    </script>
+  </head>
+ 
+    <body style="  font-family: sans-serif">
+      <script>
+        function checkAuthAndRedirect(event, text) {
+  event.preventDefault();
+  alert(text);
+}
+
+
 
 
       </script>
@@ -105,7 +191,7 @@ function closeModal(modalId) {
       {% include 'market/login.html' %}
       {% include 'market/register.html' %}
       
-      <div class="container-fluid top-page">
+      <div class="large-screen-only container-fluid top-page">
           <div class="row">
               <div class="col-l" style="margin-left: 40px;">
                   <a href="{% url 'index' %}">
@@ -114,7 +200,7 @@ function closeModal(modalId) {
               </div>
               <div class="col-md-3">
                   <div id="searchicon">
-                      <form action="{% url 'index' %}" method="get" style="margin-top: 10px;">
+                      <form action="{% url 'search' %}" method="get" style="margin-top: 10px;">
                         <input id="search-button" type="text" name="q" placeholder="Search" style="background-image: url('media/post_image/search.png'); background-repeat: no-repeat; background-position: left center; padding-left: 15px; outline: none;">
                       </form>
                     </div>
@@ -166,29 +252,90 @@ function closeModal(modalId) {
               <p onclick="openModal('categoryModal')" style="margin-top: 40px;"> Categories</p>
               </div>
           </div>
-          <div class="modal" id="categoryModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel-{{ comment.id }}">Categories</h5>
-                        
-                    </div>
-                    <div class="modal-body">
-                      <a class="dropdown-item" href="{% url 'oils' %}">Oils</a>
-                      <a class="dropdown-item" href="{% url 'crayfish' %}">Crayfish</a>
-                      <a class="dropdown-item" href="{% url 'catfish' %}">Catfish</a>
-                      <a class="dropdown-item" href="{% url 'ponmo_by_kg' %}">Ponmo By Kg</a>
-                      <a class="dropdown-item" href="{% url 'ponmo_by_piece' %}">Ponmo By Piece</a>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" onclick="closeModal('categoryModal')">Close</button>
-                    </div>
-                </div>
-            </div>
+          
         </div>
+        <div class="modal" id="categoryModal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="deleteModalLabel-{{ comment.id }}">Categories</h5>
+                      
+                  </div>
+                  <div class="modal-body">
+                    <a class="dropdown-item" href="{% url 'oils' %}">Oils</a>
+                    <a class="dropdown-item" href="{% url 'crayfish' %}">Crayfish</a>
+                    <a class="dropdown-item" href="{% url 'catfish' %}">Catfish</a>
+                    <a class="dropdown-item" href="{% url 'ponmo_by_kg' %}">Ponmo By Kg</a>
+                    <a class="dropdown-item" href="{% url 'ponmo_by_piece' %}">Ponmo By Piece</a>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeModal('categoryModal')">Close</button>
+                  </div>
+              </div>
+          </div>
+
+        
       </div>
 
+  
+
+      <nav id="nav">
+        <a href="{% url 'index' %}">
+          <i class="fas fa-home"></i>
+        
+      </a>
+      {% if request.user.is_authenticated %}
+      <a href="{% url 'logout' %}">
+      <i class="fas fa-sign-out-alt"></i>
+
+      </a>
+      {% else %}
       
+        <i onclick="openModal('loginModal')" class="fas fa-sign-in-alt"></i>
+        
+       
+
+        {% endif %}
+
+       
+          <i style="margin-left: 10px;" onclick="openModal('searchModal')" class="fas fa-search"></i>
+        
+
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'cart_view' %}">
+          <i class="fas fa-shopping-cart"><span class="">{{cart_item_count}}</span></i>
+          
+        </a>
+      {% else %}
+        <a href="#" onclick="checkAuthAndRedirect(event, 'You need to sign in to view the cart')">
+          <i class="fas fa-shopping-cart"></i>
+          
+        </a>
+      {% endif %}
+      <i onclick="openModal('categoryModal')" class="fas fa-tags"></i>
+      
+
+      
+    </nav>
+
+    <div class="modal" id="searchModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+             
+              <div class="modal-body">
+                <div id="searchicon">
+                  <form action="{% url 'search' %}" method="get" style="margin-top: 10px;">
+                    <input id="search-button" type="text" name="q" placeholder="Search" style="background-image: url('media/post_image/search.png'); background-repeat: no-repeat; background-position: left center; padding-left: 15px; outline: none;">
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="closeModal('searchModal')">Close</button>
+              </div>
+          </div>
+      </div>
+      </div>
        
           {% block body %}{% endblock %}
           

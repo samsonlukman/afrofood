@@ -27,9 +27,9 @@
               </a>
               <hr>
               {% if crayfish.in_cart %}
-                <a href="{% url 'remove_from_cart' crayfish.model_name crayfish.id %}" class="btn btn-danger mt-2">Remove from Cart</a>
+                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Remove from Cart</button>
               {% else %}
-                <a href="{% url 'add_to_cart' crayfish.model_name crayfish.id %}" class="btn btn-primary mt-2">Add to Cart</a>
+                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Add to Cart</button>
               {% endif %}
             </div>
           {% endif %}

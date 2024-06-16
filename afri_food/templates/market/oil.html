@@ -27,9 +27,9 @@
               </a>
               <hr>
               {% if oil.in_cart %}
-                <a href="{% url 'remove_from_cart' oil.model_name oil.id %}" class="btn btn-danger mt-2">Remove from Cart</a>
+                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Remove from Cart</button>
               {% else %}
-                <a href="{% url 'add_to_cart' oil.model_name oil.id %}" class="btn btn-primary mt-2">Add to Cart</a>
+                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Add to Cart</button>
               {% endif %}
             </div>
           {% endif %}
@@ -96,7 +96,6 @@
     </ul>
   </nav>
 
-
 <style>
   .scrolling-text-container {
     width: 100%;
@@ -129,4 +128,7 @@
     margin-bottom: 10px; /* Add some space between images and text */
   }
 </style>
+
+
+
 {% endblock %}

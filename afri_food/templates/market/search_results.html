@@ -1,0 +1,33 @@
+{% extends 'market/layout.html' %}
+
+{% block body %}
+<div class="container" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h2>Search Results</h2>
+            {% if query %}
+                <p style="margin-top: 10px;">You searched for: <strong>{{ query }}</strong></p>
+                
+                {% if results %}
+                    <div style="margin-top: 30px;">
+                        <ul class="list-unstyled">
+                            {% for result in results %}
+                            <hr>
+                                <li>
+                                    <a href="{% url 'product_detail' model=result.model_name id=result.object.id %}">{{ result.object.title }}</a>
+                                    - ₦{{ result.object.price }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <p>No products found matching your query.</p>
+                {% endif %}
+                
+            {% else %}
+                <p>Please enter a search term.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

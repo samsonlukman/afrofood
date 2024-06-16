@@ -113,13 +113,13 @@ class PonmoByPiece(models.Model):
     title = models.CharField(max_length=100)
     piece = models.FloatField(help_text="Enter the number of pieces")
     in_stock = models.BooleanField(default=True, help_text="Is this item in stock?")
-    price_per_piece = models.FloatField(help_text="Enter the price per piece")
+    price = models.FloatField(help_text="Enter the price per piece")
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     images = GenericRelation(Image)
     comments = GenericRelation(Comment)
 
     def __str__(self):
-        return f"{self.title} {self.piece} pieces - ${self.price_per_piece} {self.subcategory} - {'In Stock' if self.in_stock else 'Out of Stock'}"
+        return f"{self.title} {self.piece} pieces - ${self.price} {self.subcategory} - {'In Stock' if self.in_stock else 'Out of Stock'}"
     
 
 

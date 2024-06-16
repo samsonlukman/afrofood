@@ -9,6 +9,7 @@ from django.db.models import Sum
 from django.core.exceptions import ValidationError
 from .models import *
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 from django.apps import apps
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
@@ -38,13 +39,54 @@ def index(request):
     }
     return render(request, 'market/index.html', context)
 
+def annotat_with_model_name(queryset, model_name):
+    return [{'model_name': model_name, 'object': item} for item in queryset]
+
+def search(request):
+    query = request.GET.get('q')
+    results = []
+
+    if query:
+        oil_results = annotat_with_model_name(Oil.objects.filter(title__icontains=query), 'oil')
+        crayfish_results = annotat_with_model_name(CrayFish.objects.filter(title__icontains=query), 'crayfish')
+        catfish_results = annotat_with_model_name(CatFish.objects.filter(title__icontains=query), 'catfish')
+        ponmo_by_kg_results = annotat_with_model_name(PonmoByKg.objects.filter(title__icontains=query), 'ponmobykg')
+        ponmo_by_piece_results = annotat_with_model_name(PonmoByPiece.objects.filter(title__icontains=query), 'ponmobypiece')
+
+        results = oil_results + crayfish_results + catfish_results + ponmo_by_kg_results + ponmo_by_piece_results
+
+    context = {
+        'query': query,
+        'results': results
+    }
+
+    return render(request, 'market/search_results.html', context)
+
+def set_in_cart_status(items, cart):
+    cart_item_ids = set(cart.items.values_list('object_id', flat=True))
+    content_type = ContentType.objects.get_for_model(items.first().__class__)
+    cart_items = cart.items.filter(content_type=content_type).values_list('object_id', flat=True)
+    item_ids_in_cart = set(cart_items)
+
+    for item in items:
+        item.in_cart = item.id in item_ids_in_cart
+
 def market(request):
     user = request.user
     recent_oils = annotate_with_model_name(Oil.objects.order_by('-id')[:12], 'oil')
     recent_crayfish = annotate_with_model_name(CrayFish.objects.order_by('-id')[:12], 'crayfish')
     recent_catfish = annotate_with_model_name(CatFish.objects.order_by('-id')[:12], 'catfish')
     recent_ponmo_by_kg = annotate_with_model_name(PonmoByKg.objects.order_by('-id')[:12], 'ponmobykg')
-    recent_ponmo_by_piece = annotate_with_model_name(PonmoByPiece.objects.order_by('-id')[:12], 'ponmobyiece')
+    recent_ponmo_by_piece = annotate_with_model_name(PonmoByPiece.objects.order_by('-id')[:12], 'ponmobypiece')
+
+    if user.is_authenticated:
+        cart = Cart.objects.filter(user=user).first()
+        if cart:
+            set_in_cart_status(recent_oils, cart)
+            set_in_cart_status(recent_crayfish, cart)
+            set_in_cart_status(recent_catfish, cart)
+            set_in_cart_status(recent_ponmo_by_kg, cart)
+            set_in_cart_status(recent_ponmo_by_piece, cart)
 
     context = {
         'recent_oils': recent_oils,
@@ -183,15 +225,6 @@ def ponmo_by_piece_view(request):
     }
     return render(request, 'market/ponmo-by-piece.html', context)
 
-def detail(request, model, id):
-    # Dynamically get the model class based on the model name
-    model_class = apps.get_model('afri_food', model)
-    product = get_object_or_404(model_class, id=id)
-    
-    return render(request, "market/detail.html", {
-        "product": product
-    })
-
 def category_detail(request, slug):
     user = request.user
     category = get_object_or_404(MarketCategory, slug=slug)
@@ -256,8 +289,8 @@ def category_detail(request, slug):
     context = {
         'category': category,
         'oils': oils,
-        'crayfish': crayfish,
-        'catfish': catfish,
+        'crayfish_data': crayfish,
+        'catfish_data': catfish,
         'ponmo_by_kg': ponmo_by_kg,
         'ponmo_by_piece': ponmo_by_piece,
         'user': user
@@ -265,18 +298,30 @@ def category_detail(request, slug):
     return render(request, 'market/category_detail.html', context)
 
 def add_to_cart(request, product_type, product_id):
-    user = request.user
-    cart, created = Cart.objects.get_or_create(user=user)
+    if request.method == 'POST':
+        user = request.user
+        cart, created = Cart.objects.get_or_create(user=user)
 
-    content_type = ContentType.objects.get(model=product_type)
-    product = get_object_or_404(content_type.model_class(), id=product_id)
+        content_type = ContentType.objects.get(model=product_type)
+        product = get_object_or_404(content_type.model_class(), id=product_id)
 
-    cart_item, created = CartItem.objects.get_or_create(cart=cart, content_type=content_type, object_id=product.id)
-    if not created:
-        cart_item.quantity += 1
-        cart_item.save()
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, content_type=content_type, object_id=product.id)
+        if not created:
+            cart_item.quantity += 1
+            cart_item.save()
 
-    return redirect('cart_view')
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
+
+
+def cart_remove_from_cart(request, product_type, item_id):
+    if request.method == 'POST':
+        content_type = ContentType.objects.get(model=product_type)
+        item = get_object_or_404(CartItem, content_type=content_type, object_id=item_id, cart__user=request.user)
+        item.delete()
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
 
 @login_required
 def remove_from_cart(request, product_type, item_id):
@@ -284,20 +329,6 @@ def remove_from_cart(request, product_type, item_id):
     item = get_object_or_404(CartItem, content_type=content_type, object_id=item_id, cart__user=request.user)
     item.delete()
     return redirect('cart_view')
-
-
-@login_required
-def view_cart(request):
-    cart, created = Cart.objects.get_or_create(user=request.user)
-    cart_items = CartItem.objects.filter(cart=cart)
-    total_cost = sum(item.content_object.price * item.quantity for item in cart_items)
-    
-    context = {
-        'cart': cart,
-        'cart_items': cart_items,
-        'total_cost': total_cost,
-    }
-    return render(request, 'market/cart.html', context)
 
 def view_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
@@ -339,34 +370,42 @@ def upload(request):
 def register(request):
     return render(request, 'market/register.html')
 
-# This function is responsible for adding a new comment to a listing
-def addComment(request, id):
-    if not request.user.is_authenticated:
-        error_message = "You need to log in to access this page."
-        return render(request, "market/error.html", {
-            "error": error_message,
-        })
+def detail(request, model, id):
+    model_class = apps.get_model('afri_food', model)
+    product = get_object_or_404(model_class, id=id)
+    comments = Comment.objects.filter(content_type=ContentType.objects.get_for_model(model_class), object_id=product.id)
 
-    # Get the current user making the request
-    currentUser = request.user
-    # Get the listing data for the given id
-    listingData = Market.objects.get(pk=id)
-    # Get the message for the new comment from the request
-    message = request.POST["newComment"]
+    # Check if the product is in the user's cart
+    in_cart = CartItem.objects.filter(cart__user=request.user, content_type=ContentType.objects.get_for_model(model_class), object_id=product.id).exists()
 
-    # Create a new comment object with the author, listing, and message
-    newComment = MarketComment(
-        author=currentUser,
-        item=listingData,
-        message=message
-    )
-    # Save the comment to the database
-    newComment.save()
-    # Redirect the user back to the listing page
-    return HttpResponseRedirect(reverse("item",args=(id, )))
+    return render(request, "market/detail.html", {
+        "product": product,
+        "comments": comments,
+        "model_name": model,
+        "in_cart": in_cart  # Pass the in_cart status to the template
+    })
 
+import json
+def add_comment(request, model, id):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            comment_message = data.get('comment')
+            if not comment_message:
+                return JsonResponse({'success': False, 'error': 'Comment message is required'}, status=400)
 
-from django.http import JsonResponse
+            model_class = apps.get_model('afri_food', model)
+            product = get_object_or_404(model_class, id=id)
+
+            comment = Comment.objects.create(
+                content_object=product,
+                author=request.user,
+                message=comment_message,
+            )
+            return JsonResponse({'success': True, 'comment': comment.message})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    return JsonResponse({'success': False, 'error': 'Invalid request method'}, status=400)
 
 def login_view(request):
     if request.method == "POST":

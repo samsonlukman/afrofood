@@ -38,3 +38,58 @@ a {
   inset: 0;
 }
 
+/* mobile */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .large-screen-only {
+      display: none;
+  }
+
+  #nav {
+   
+    top: 0px
+  }
+  
+}
+
+/* desktop */
+@media (min-width: 1321px) {
+  .large-screen-only {
+      display: block;
+  }
+
+  #nav {
+    display: none;
+  }
+
+  #nav {
+    display: none;
+  }
+
+}
+
+nav {
+ top: 60px;
+ position: absolute;
+
+}
+nav a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 0 5px;
+  top: 10px;
+}
+
+
+.icon {
+  width: 100%; /* Make the image width 100% of its container */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  top: 0
+}
+
+/* Optional: Adjust top and left positions */
+
+
+

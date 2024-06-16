@@ -30,9 +30,9 @@
                     <a href="{% url 'update_cart' item.content_type.model item.object_id item.quantity|add:'-1' %}" class="btn btn-secondary">-</a>
                   </div>
                 </td>
-                <td>₦{{ item.content_object.price|floatformat:2 }} * {{ item.quantity }} = ₦{{ item.content_object.price|multiply:item.quantity|floatformat:2 }}</td>
+                <td>₦{{ item.content_object.price|floatformat:2 }} x {{ item.quantity }} = ₦{{ item.content_object.price|multiply:item.quantity|floatformat:2 }}</td>
                 <td>
-                  <a href="{% url 'remove_from_cart' item.content_type.model item.object_id %}" class="btn btn-danger">Remove</a>
+                  <a href="{% url 'remove_from_cart' item.content_type.model item.object_id %}"><i class="fas fa-trash" style="color: red;"></a></i>
                 </td>
               </tr>
             {% endfor %}
@@ -51,12 +51,15 @@
 
 <!-- Modal for order confirmation -->
 <div class="modal" id="confirmOrderModal">
+  <div class="modal-dialog">
   <div class="modal-content">
     <span class="close" onclick="closeModal('confirmOrderModal')">&times;</span>
     <h2>Confirm Order</h2>
     <p>Are you sure you want to place this order?</p>
     <a href="{% url 'place_order' %}" class="btn btn-success">Yes</a>
-    <button class="btn btn-secondary" onclick="closeModal('confirmOrderModal')">No</button>
+    <br>
+    <button class="btn btn-danger" onclick="closeModal('confirmOrderModal')">No</button>
+  </div>
   </div>
 </div>
 
@@ -142,20 +145,6 @@
   }
 </style>
 
-<script>
-  function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = "block";
-    }
-  }
-  
-  function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = "none";
-    }
-  }
-</script>
+
 
 {% endblock %}

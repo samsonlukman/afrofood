@@ -27,10 +27,11 @@
               </a>
               <hr>
               {% if catfish.in_cart %}
-              <a href="{% url 'remove_from_cart' catfish.model_name catfish.id %}" class="btn btn-danger mt-2">Remove from Cart</a>
-            {% else %}
-              <a href="{% url 'add_to_cart' catfish.model_name catfish.id %}" class="btn btn-primary mt-2">Add to Cart</a>
-            {% endif %}
+                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ catfish.model_name }}" data-item-id="{{ catfish.id }}">Remove from Cart</button>
+              {% else %}
+                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ catfish.model_name }}" data-item-id="{{ catfish.id }}">Add to Cart</button>
+              {% endif %}
+            
             </div>
           {% endif %}
         {% endfor %}

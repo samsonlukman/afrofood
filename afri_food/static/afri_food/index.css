@@ -1,3 +1,98 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .welcome-and-shop {
+    top: -40px;
+    position: relative;
+  }
+
+  #join {
+    top: 300px;
+    
+    position: absolute; /* Add this line */
+    display: inline-block;
+    left: 00%;
+    transform: translateX(0%); /* Adjust for element width */
+    text-align: center; /* Center text within the element */    
+  }
+
+  #categories {
+  
+    position: absolute; /* Ensure it uses absolute positioning */
+    top: 450px; /* Adjust this value as needed for vertical positioning */
+    left: 00%; /* Center horizontally */
+    transform: translateX(0%); /* Adjust for element width */
+    text-align: center; /* Center text within the element */
+  }
+
+  #discover {
+  
+    position: absolute; /* Ensure it uses absolute positioning */
+    top: 1200px; /* Adjust this value as needed for vertical positioning */
+    left: 00%; /* Center horizontally */
+    transform: translateX(0%); /* Adjust for element width */
+    text-align: center; /* Center text within the element */
+  }
+
+  #footer-content {
+    position: absolute;
+    margin-top: 550px;
+  }
+
+  #see-more {
+    position: relative; top: 2100px; 
+  }
+
+  
+}
+
+/* end of 320 - 480 media queries */
+
+/* media queries for see more button */
+
+@media (min-width: 385px) and (max-width: 428px) {
+  #see-more {
+    position: relative; top: 2200px; 
+  }
+  #footer-content {
+    position: absolute;
+    margin-top: 600px;
+  }
+
+}
+
+@media (min-width: 429px) and (max-width: 480px) {
+  #see-more {
+    position: relative; top: 2300px; 
+  }
+  #footer-content {
+    position: absolute;
+    margin-top: 700px;
+  }
+
+}
+
+.see-more {
+  position: relative; top: 1650px
+}
+
+.afri-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 11.68%; /* Aspect ratio: (height / width) * 100 */
+  overflow: hidden;
+  margin-top: 50px;
+}
+.afri-image-container img {
+  position: absolute;
+  top: -10px; /* Adjust as needed to crop top */
+  left: -10px; /* Adjust as needed to crop left */
+  right: -10px; /* Adjust as needed to crop right */
+  bottom: -10px; /* Adjust as needed to crop bottom */
+  width: calc(100% + 20px); /* Adjust based on cropping values */
+  height: calc(100% + 20px); /* Adjust based on cropping values */
+  object-fit: cover;
+}
+
 .collection {
   position: relative;
   font-weight: 500;
@@ -25,11 +120,17 @@ footer {
   
 }
 
-#welcome-to {
-  position: relative;
-  left: -80px;
-  top: 80px
-}
+ #welcome-to-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+    }
+
+    #welcome-to {
+      position: relative;
+      top: -70px;
+    }
 
 #we-are-an {
   position: relative;
@@ -207,20 +308,13 @@ footer {
 .online-food-marketplace {
   margin: 0;
 }
-.icon,
+
 .online-food-marketplace-container {
   position: absolute;
   top: 69px;
   left: 427px;
 }
-.icon {
-  top: 10px;
-  left: 0px;
-  width: 1900px;
-  height: 222px;
-  object-fit: cover;
-  
-}
+
 .online-food-marketplace-collec-parent {
   align-self: stretch;
   height: 192px;
@@ -345,9 +439,8 @@ footer {
   z-index: 2;
 }
 .join-our-community {
-  width: 558px;
   position: absolute; /* Add this line */
-  top: 500px;
+  top: 670px;
   display: inline-block;
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust for element width */
@@ -357,7 +450,7 @@ footer {
 .our-categories {
   
   position: absolute; /* Ensure it uses absolute positioning */
-  top: 600px; /* Adjust this value as needed for vertical positioning */
+  top: 800px; /* Adjust this value as needed for vertical positioning */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust for element width */
   text-align: center; /* Center text within the element */
@@ -371,7 +464,7 @@ footer {
 .our-products {
   
   position: absolute; /* Ensure it uses absolute positioning */
-  top: 1000px; /* Adjust this value as needed for vertical positioning */
+  top: 1200px; /* Adjust this value as needed for vertical positioning */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust for element width */
   text-align: center; /* Center text within the element */
@@ -398,10 +491,14 @@ footer {
   color: var(--color-black);
   font-family: var(--font-inter);
 }
+
+.afrifood-welcome {
+  position: relative;
+  top:-50px
+}
 .frame-item {
   position: absolute;
-  top: 60px;
-  left: 500px;
+  top: 20px;
   overflow: hidden;
   border-radius: 2%; /* Make it a circle */
   object-fit: cover; /* Ensure the image covers the area without distortion */
@@ -930,6 +1027,7 @@ footer {
   max-width: 100%;
   color: var(--color-gray-100);
 }
+
 .a-fri-food-message,
 .a-fri-food-message-wrapper {
   display: flex;

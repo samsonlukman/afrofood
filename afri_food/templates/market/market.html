@@ -15,6 +15,7 @@
         {% for oil in recent_oils %}
           {% if oil.images.exists %}
             <div class="col-3 d-flex flex-column align-items-center">
+              <br>
               <a href="{% url 'product_detail' model=oil.model_name id=oil.id %}" class="d-flex flex-column align-items-center">
                 <img
                   class="img-fluid product-image"
@@ -22,9 +23,15 @@
                   alt="{{oil.title}}"
                   src="{{ oil.images.first.image.url }}"
                 />
-                <span>{{oil.title}}</span>
-              </a>
+                <span>{{oil.title}}</span> </a>
+                 {% if oil.in_cart %}
+                  <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Remove from Cart</button>
+                {% else %}
+                  <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Add to Cart</button>
+                {% endif %}
+             
             </div>
+            
           {% endif %}
         {% endfor %}
       </div>
@@ -32,7 +39,7 @@
       <br>
 
       <a href="{% url 'oils' %}">
-        <span class="btn btn-primary">See More</span>
+        <span class="btn btn-info">See More</span>
       </a>
 
       <hr>
@@ -43,6 +50,7 @@
         {% for catfish in recent_catfish %}
           {% if catfish.images.exists %}
             <div class="col-3 d-flex flex-column align-items-center">
+              <br>
               <a href="{% url 'product_detail' model=catfish.model_name id=catfish.id %}" class="d-flex flex-column align-items-center">
                 <img
                   class="img-fluid product-image"
@@ -52,6 +60,11 @@
                 />
                 <span>{{catfish.title}}</span>
               </a>
+              {% if catfish.in_cart %}
+                  <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ catfish.model_name }}" data-item-id="{{ catfish.id }}">Remove from Cart</button>
+                {% else %}
+                  <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ catfish.model_name }}" data-item-id="{{ catfish.id }}">Add to Cart</button>
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}
@@ -60,7 +73,7 @@
       <br>
 
       <a href="{% url 'catfish' %}">
-        <span class="btn btn-primary">See More</span>
+        <span class="btn btn-info">See More</span>
       </a>
       <hr>
       <h2>Crayfish</h2>
@@ -69,6 +82,7 @@
         {% for crayfish in recent_crayfish %}
           {% if crayfish.images.exists %}
             <div class="col-3 d-flex flex-column align-items-center">
+              <br>
               <a href="{% url 'product_detail' model=crayfish.model_name id=crayfish.id %}" class="d-flex flex-column align-items-center">
                 <img
                   class="img-fluid product-image"
@@ -78,6 +92,11 @@
                 />
                 <span>{{crayfish.title}}</span>
               </a>
+              {% if crayfish.in_cart %}
+                  <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Remove from Cart</button>
+                {% else %}
+                  <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Add to Cart</button>
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}
@@ -86,7 +105,7 @@
       <br>
 
       <a href="{% url 'crayfish' %}">
-        <span class="btn btn-primary">See More</span>
+        <span class="btn btn-info">See More</span>
       </a>
 
       <hr>
@@ -96,6 +115,7 @@
         {% for ponmo in recent_ponmo_by_kg %}
           {% if ponmo.images.exists %}
             <div class="col-3 d-flex flex-column align-items-center">
+              <br>
               <a href="{% url 'product_detail' model=ponmo.model_name id=ponmo.id %}" class="d-flex flex-column align-items-center">
                 <img
                   class="img-fluid product-image"
@@ -105,6 +125,11 @@
                 />
                 <span>{{ponmo.title}}</span>
               </a>
+              {% if ponmo.in_cart %}
+                  <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</button>
+                {% else %}
+                  <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Add to Cart</button>
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}
@@ -112,7 +137,7 @@
 
       <br>
       <a href="{% url 'ponmo_by_kg' %}">
-        <span class="btn btn-primary">See More</span>
+        <span class="btn btn-info">See More</span>
       </a>
 
       <hr>
@@ -120,6 +145,7 @@
       <br>
       <div class="row">  
         {% for ponmo in recent_ponmo_by_piece %}
+        <br>
           {% if ponmo.images.exists %}
             <div class="col-3 d-flex flex-column align-items-center">
               <a href="{% url 'product_detail' model=ponmo.model_name id=ponmo.id %}" class="d-flex flex-column align-items-center">
@@ -131,13 +157,18 @@
                 />
                 <span>{{ponmo.title}}</span>
               </a>
+              {% if ponmo.in_cart %}
+                  <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</button>
+                {% else %}
+                  <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Add to Cart</button>
+                {% endif %}
             </div>
           {% endif %}
         {% endfor %}
       </div>
       <br>
       <a href="{% url 'ponmo_by_piece' %}">
-        <span class="btn btn-primary">See More</span>
+        <span class="btn btn-info">See More</span>
       </a>
     </div>
   </div>
