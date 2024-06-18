@@ -118,6 +118,7 @@ def oil_view(request):
 
     page_number = request.GET.get('page')
     oils = paginator.get_page(page_number)
+    cart_item_ids = set()
     if user.is_authenticated:
         cart = Cart.objects.filter(user=user).first()
         if cart:
@@ -386,14 +387,19 @@ def detail(request, model, id):
     product = get_object_or_404(model_class, id=id)
     comments = Comment.objects.filter(content_type=ContentType.objects.get_for_model(model_class), object_id=product.id)
 
-    # Check if the product is in the user's cart
-    in_cart = CartItem.objects.filter(cart__user=request.user, content_type=ContentType.objects.get_for_model(model_class), object_id=product.id).exists()
+    in_cart = False
+    if request.user.is_authenticated:
+        in_cart = CartItem.objects.filter(
+            cart__user=request.user,
+            content_type=ContentType.objects.get_for_model(model_class),
+            object_id=product.id
+        ).exists()
 
     return render(request, "market/detail.html", {
         "product": product,
         "comments": comments,
         "model_name": model,
-        "in_cart": in_cart  # Pass the in_cart status to the template
+        "in_cart": in_cart
     })
 
 import json
