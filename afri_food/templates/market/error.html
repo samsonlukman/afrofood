@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>HII</h1>
-</body>
-</html>
+{% extends 'market/layout.html' %}
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="display-1 text-danger">Oops!</h1>
+        <h2 class="display-4">Something went wrong.</h2>
+        <p class="lead">We're sorry, but something went wrong. Please try again later.</p>
+        <p>
+            <a href="{% url 'index' %}" class="btn btn-primary mt-4 mr-3">Go to Home</a>
+            <span onclick="openModal('loginModal')" class="btn btn-primary mt-4">Login</span>
+        </p>
+        
+
+    </div>
+</div>
+{% endblock %}

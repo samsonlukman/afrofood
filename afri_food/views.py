@@ -39,6 +39,9 @@ def index(request):
     }
     return render(request, 'market/index.html', context)
 
+def error(request):
+    return render(request, 'market/error.html')
+
 def annotat_with_model_name(queryset, model_name):
     return [{'model_name': model_name, 'object': item} for item in queryset]
 

@@ -1,7 +1,7 @@
 {% extends 'market/layout.html' %}
 {% load static %}
 {% block body %}
-<div class="container" style="top: 100px;">
+<div class="container" style="top: 20px;">
   <div class="scrolling-text-container">
     <div class="scrolling-text">
       Our cooking oils are not just carefully sourced and healthy, they are cheap and affordable too!
@@ -14,7 +14,7 @@
       <div class="row">  
         {% for oil in oils %}
           {% if oil.images.exists %}
-            <div class="col-3 d-flex flex-column align-items-center">
+            <div class="col-4 d-flex flex-column align-items-center">
               <br>
               <a href="{% url 'product_detail' model=oil.model_name id=oil.id %}" class="d-flex flex-column align-items-center">
                 <img
@@ -23,13 +23,13 @@
                   alt="{{oil.title}}"
                   src="{{ oil.images.first.image.url }}"
                 />
-                <span>{{oil.title}}</span>
+                <span>{{oil.title|truncatechars:10}}</span>
               </a>
               <hr>
               {% if oil.in_cart %}
-                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Remove from Cart</button>
+                <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Remove from Cart</p>
               {% else %}
-                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Add to Cart</button>
+                <p style="color: green;" class="mt-2 add-to-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Add to Cart</p>
               {% endif %}
             </div>
           {% endif %}
@@ -39,10 +39,6 @@
   </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
   <!-- Pagination controls -->
   <nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination justify-content-center">
@@ -123,7 +119,7 @@
   }
 
   .product-image {
-    border: 1px solid black; /* Add black border */
+    
     border-radius: 5px; /* Optional: Add border radius */
     margin-bottom: 10px; /* Add some space between images and text */
   }

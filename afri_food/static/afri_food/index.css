@@ -1,4 +1,9 @@
-@media (min-width: 320px) and (max-width: 480px) {
+@media screen and (max-width: 800px) {
+
+  #email-field {
+   position: relative;
+   left: -70px;
+  }
 
   .welcome-and-shop {
     top: -40px;
@@ -47,20 +52,32 @@
 
 /* end of 320 - 480 media queries */
 
-/* media queries for see more button */
+/* media queries for see width 385 - 428 */
+
 
 @media (min-width: 385px) and (max-width: 428px) {
   #see-more {
     position: relative; top: 2200px; 
   }
+
   #footer-content {
     position: absolute;
     margin-top: 600px;
   }
 
+  #email-field {
+    position: relative;
+    left: -85px;
+   }
+
+ 
 }
 
-@media (min-width: 429px) and (max-width: 480px) {
+/* end of media queries for see width 385 - 428 */
+
+/* media queries for width 429-480 */
+
+@media (min-width: 429px) and (max-width: 514px) {
   #see-more {
     position: relative; top: 2300px; 
   }
@@ -69,8 +86,91 @@
     margin-top: 700px;
   }
 
-}
+  #email-field {
+    position: relative;
+    left: -100px;
+   }
 
+  
+
+}
+/*  end of media queries for see width 429 - 480 */
+
+/*  media queries for see width 515 - 767 */
+@media (min-width: 515px) and (max-width: 767px) {
+  #join {
+    top: 400px;
+       
+  }
+
+  #categories {
+    top: 500px; /* Adjust this value as needed for vertical positioning */
+  }
+
+  #discover {
+    top: 1300px; /* Adjust this value as needed for vertical positioning */
+ 
+   
+  }
+
+  #footer-content {
+    position: absolute;
+    margin-top: 900px;
+  }
+
+  #see-more {
+    position: relative; top: 2500px; 
+  }
+
+  #email-field {
+    position: relative;
+    left: -120px;
+   }
+
+   .call-to-action {
+    left: -40px;
+    position: relative;
+   }
+
+}
+/*  end of media queries for see width 515 - 767 */
+
+/*  end of media queries for see width 768 - 800 */
+
+@media (min-width: 768px) and (max-width: 800px) {
+  #join {
+    top: 500px;
+       
+  }
+
+  #categories {
+    top: 600px; /* Adjust this value as needed for vertical positioning */
+  }
+
+  #discover {
+    top: 1000px; /* Adjust this value as needed for vertical positioning */
+ 
+   
+  }
+
+  #footer-content {
+    position: absolute;
+    margin-top: 2px;
+  }
+
+  #see-more {
+    position: relative; top: 1500px; 
+  }
+
+  #email-field {
+    position: relative;
+    left: -5px;
+   }
+
+   
+
+
+}
 .see-more {
   position: relative; top: 1650px
 }
@@ -85,11 +185,8 @@
 .afri-image-container img {
   position: absolute;
   top: -10px; /* Adjust as needed to crop top */
-  left: -10px; /* Adjust as needed to crop left */
-  right: -10px; /* Adjust as needed to crop right */
   bottom: -10px; /* Adjust as needed to crop bottom */
-  width: calc(100% + 20px); /* Adjust based on cropping values */
-  height: calc(100% + 20px); /* Adjust based on cropping values */
+  left: 2px;
   object-fit: cover;
 }
 
@@ -500,7 +597,7 @@ footer {
   position: absolute;
   top: 20px;
   overflow: hidden;
-  border-radius: 2%; /* Make it a circle */
+  border-radius: 5%; /* Make it a circle */
   object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
@@ -890,13 +987,7 @@ footer {
   position: relative;
   line-height: 19px;
 }
-.email-field {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-7xs) 0 0;
-}
+
 .sign-up-for {
   color: var(--color-black);
 }

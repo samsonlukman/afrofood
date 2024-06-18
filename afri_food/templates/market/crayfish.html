@@ -1,7 +1,7 @@
 {% extends 'market/layout.html' %}
 {% load static %}
 {% block body %}
-<div class="container" style="top: 100px; position: relative;">
+<div class="container" style="top: 20px; position: relative;">
   <div class="scrolling-text-container">
     <div class="scrolling-text">
         ❤️ Delicious and neatly-packaged dried and big crayfish for your enjoyment ❤️
@@ -14,7 +14,7 @@
       <div class="row">  
         {% for crayfish in crayfish_data %}
           {% if crayfish.images.exists %}
-            <div class="col-3 d-flex flex-column align-items-center">
+            <div class="col-4 d-flex flex-column align-items-center">
               <br>
               <a href="{% url 'product_detail' model=crayfish.model_name id=crayfish.id %}" class="d-flex flex-column align-items-center">
                 <img
@@ -23,13 +23,13 @@
                   alt="{{crayfish.title}}"
                   src="{{ crayfish.images.first.image.url }}"
                 />
-                <span>{{crayfish.title}}</span>
+                <span>{{crayfish.title|truncatechars:10}}</span>
               </a>
               <hr>
               {% if crayfish.in_cart %}
-                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Remove from Cart</button>
+                <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Remove from Cart</p>
               {% else %}
-                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Add to Cart</button>
+                <p style="color: green;" class="mt-2 add-to-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Add to Cart</p>
               {% endif %}
             </div>
           {% endif %}
@@ -124,7 +124,7 @@
     }
   
     .product-image {
-      border: 1px solid black; /* Add black border */
+      
       border-radius: 5px; /* Optional: Add border radius */
       margin-bottom: 10px; /* Add some space between images and text */
     }

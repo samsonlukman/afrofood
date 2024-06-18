@@ -8,6 +8,7 @@ urlpatterns = [
     path('detail/<str:model>/<int:id>/add_comment/', views.add_comment, name='add_comment'),path('detail/<str:model>/<int:id>/add_comment/', views.add_comment, name='add_comment'),
     path("login/", views.login_view, name="login"),
     path("logout", views.logout_view, name="logout"),
+    path('error', views.error, name='error'),
     path("upload", views.upload, name="upload"),
     path("register", views.register, name="register"), 
     path('category/<slug:slug>/', views.category_detail, name='category_detail'),

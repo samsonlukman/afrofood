@@ -1,7 +1,7 @@
 {% extends 'market/layout.html' %}
 {% load static %}
 {% block body %}
-<div class="container" style="top: 100px; position: relative;">
+<div class="container" style="top: 20px; position: relative;">
   <div class="scrolling-text-container">
     <div class="scrolling-text">
         ❤️ Whether dried white or black ponmo, we have them in stock for you per KG. Enjoy your ponmo anywhere in the world with AfriFood! ❤️
@@ -14,7 +14,7 @@
       <div class="row">  
         {% for ponmo in ponmo_by_kg %}
           {% if ponmo.images.exists %}
-            <div class="col-3 d-flex flex-column align-items-center">
+            <div class="col-4 d-flex flex-column align-items-center">
               <br>
               <a href="{% url 'product_detail' model=ponmo.model_name id=ponmo.id %}" class="d-flex flex-column align-items-center">
                 <img
@@ -23,13 +23,13 @@
                   alt="{{ponmo.title}}"
                   src="{{ ponmo.images.first.image.url }}"
                 />
-                <span>{{ponmo.title}}</span>
+                <span>{{ponmo.title|truncatechars:10}}</span>
               </a>
               <hr>
               {% if ponmo.in_cart %}
-                <button class="btn btn-danger mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</button>
+                <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</p>
               {% else %}
-                <button class="btn btn-primary mt-2 add-to-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Add to Cart</button>
+                <p style="color: green;" class="mt-2 add-to-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Add to Cart</p>
               {% endif %}
             </div>
           {% endif %}
@@ -123,7 +123,7 @@
     }
   
     .product-image {
-      border: 1px solid black; /* Add black border */
+      
       border-radius: 5px; /* Optional: Add border radius */
       margin-bottom: 10px; /* Add some space between images and text */
     }

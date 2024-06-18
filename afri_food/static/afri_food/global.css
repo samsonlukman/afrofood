@@ -63,12 +63,12 @@ a {
 
 }
 
-nav {
+.mobile-header {
  top: 60px;
  position: absolute;
 
 }
-nav a {
+.mobile-header a {
   color: black;
   text-decoration: none;
   padding: 10px 20px;

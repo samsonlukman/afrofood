@@ -279,7 +279,7 @@ function closeModal(modalId) {
 
   
 
-      <nav id="nav">
+      <nav class="mobile-header" id="nav">
         <a href="{% url 'index' %}">
           <i class="fas fa-home"></i>
         
@@ -335,6 +335,15 @@ function closeModal(modalId) {
               </div>
           </div>
       </div>
+      </div>
+
+      <div class="afri-image-container">
+        <img
+            class="icon img-fluid"
+            loading="lazy"
+            alt=""
+            src="/static/afri_food/public/9886646-1@2x.png"
+        />
       </div>
        
           {% block body %}{% endblock %}
