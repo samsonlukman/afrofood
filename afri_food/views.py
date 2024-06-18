@@ -2,18 +2,26 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Sum
 from django.core.exceptions import ValidationError
 from .models import *
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
+from django.views.generic import TemplateView
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.apps import apps
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from .model_annotate import annotate_with_model_name
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
 # Create your views here.
 
 
@@ -374,8 +382,6 @@ def register(request):
     return render(request, 'market/register.html')
 
 def detail(request, model, id):
-    if not request.user:
-        return render(request, 'market/error.html')
     model_class = apps.get_model('afri_food', model)
     product = get_object_or_404(model_class, id=id)
     comments = Comment.objects.filter(content_type=ContentType.objects.get_for_model(model_class), object_id=product.id)
@@ -461,4 +467,26 @@ def register(request):
         return JsonResponse({"redirect": reverse("index")})
     else:
         return render(request, "market/error.html")
+    
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'registration/password_reset_form.html'
+    success_url = reverse_lazy('registration/password_reset_done')
+    email_template_name = 'registration/password_reset_email.html'
+
+    def form_valid(self, form):
+        context = {'email': form.cleaned_data['email']}
+        return render(self.request, self.template_name, context)
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'market/password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
+    success_url = reverse_lazy('registration/password_reset_complete')
+
+
+class CustomPasswordResetCompleteView(TemplateView):
+    template_name = 'registration/password_reset_complete.html'
 

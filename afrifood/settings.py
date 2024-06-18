@@ -117,6 +117,14 @@ USE_I18N = True
 
 USE_TZ = True
 
+#settings for forgot password
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'lucassamson24@gmail.com'
+EMAIL_HOST_PASSWORD = 'ezgokvqbrzfnfbjw'
+EMAIL_USE_TLS = True  # or False if you don't want to use TLS
+DEFAULT_FROM_EMAIL = 'lucassamson24@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'

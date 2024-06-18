@@ -12,7 +12,7 @@
           <thead>
             <tr>
               <th scope="col"><i class="fas fa-box"></i></th>
-              <th scope="col"><i class="fas fa-dollar-sign"></i></th>
+              <th scope="col"><span>₦</span></th>
               <th scope="col"><i class="fas fa-sort-numeric-up"></i></th>
               <th scope="col"><i class="fas fa-calculator"></i></th>
               <th scope="col"><i class="fas fa-trash"></i></th>
@@ -25,9 +25,9 @@
                 <td>₦{{ item.content_object.price }}</td>
                 <td>
                   <div class="d-flex align-items-center">
-                    <span>{{ item.quantity }}</span>
-                    <a href="{% url 'update_cart' item.content_type.model item.object_id item.quantity|add:'1' %}" class="btn btn-secondary ml-2 mr-2">+</a>
-                    <a href="{% url 'update_cart' item.content_type.model item.object_id item.quantity|add:'-1' %}" class="btn btn-secondary">-</a>
+                    <h6>{{ item.quantity }}</h6>
+                    <h3><a href="{% url 'update_cart' item.content_type.model item.object_id item.quantity|add:'1' %}" class="ml-2 mr-2">+</a></h3>
+                    <h3><a href="{% url 'update_cart' item.content_type.model item.object_id item.quantity|add:'-1' %}" class="ml-2 mr-2" >-</a></h3>
                   </div>
                 </td>
                 <td>₦{{ item.content_object.price|floatformat:2 }} x {{ item.quantity }} = ₦{{ item.content_object.price|multiply:item.quantity|floatformat:2 }}</td>
