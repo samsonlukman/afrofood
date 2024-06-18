@@ -374,6 +374,8 @@ def register(request):
     return render(request, 'market/register.html')
 
 def detail(request, model, id):
+    if not request.user:
+        return render(request, 'market/error.html')
     model_class = apps.get_model('afri_food', model)
     product = get_object_or_404(model_class, id=id)
     comments = Comment.objects.filter(content_type=ContentType.objects.get_for_model(model_class), object_id=product.id)
