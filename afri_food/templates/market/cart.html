@@ -40,7 +40,7 @@
         </table>
         <div class="d-flex justify-content-between align-items-center">
           <h6 style="margin-top: 10px;">Total Cost: ₦{{ total_cost|floatformat:2 }}</h6>
-          <button class="btn btn-primary" onclick="openModal('confirmOrderModal')" style="margin-left: 20px;">Place Order</button>
+          <button class="btn btn-primary" onclick="openModal('confirmOrderModal')"style="background-color: #006D60; color: white; margin-left: 20px">Place Order</button>
         </div>
       {% else %}
         <p>Your cart is empty.</p>
@@ -56,7 +56,7 @@
     <span class="close" onclick="closeModal('confirmOrderModal')">&times;</span>
     <h2>Confirm Order</h2>
     <p>Are you sure you want to place this order?</p>
-    <a href="{% url 'place_order' %}" class="btn btn-success">Yes</a>
+    <a href="{% url 'place_order' %}" class="btn" style="background-color: #006D60; color: white;">Yes</a>
     <br>
     <button class="btn btn-danger" onclick="closeModal('confirmOrderModal')">No</button>
   </div>

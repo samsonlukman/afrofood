@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!)gqpc-u#=juetc8*%$3q(0lmrwl6m)ct+4a26$i!j=g%zb%%-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['afrifood.pythonanywhere.com']
+ALLOWED_HOSTS = ['shopafrifood.com']
 
 
 # Application definition

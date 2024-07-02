@@ -2,12 +2,12 @@
 {% block body %}
 
 <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
-    <div class="alert alert-success text-center" role="alert">
+    <div class="alert text-center" style="background-color: #006D60; color: white;" role="alert">
         <h4 class="alert-heading">Order Placed Successfully!</h4>
         <p>Thank you for your purchase. Your order has been placed successfully and is being processed.</p>
         <hr>
         <p class="mb-0">We will contact you shortly via email: {{ user.email }} or phone number: {{ user.phone_number }}</p>
-        <a href="{% url 'index' %}" class="btn btn-primary mt-3">Return to Home</a>
+        <a href="{% url 'index' %}" class="btn mt-3" style="background-color: black; color: white;">Return to Home</a>
     </div>
 </div>
 

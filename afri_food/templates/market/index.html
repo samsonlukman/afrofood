@@ -9,7 +9,7 @@
     <div class="welcome-and-shop">
    <h3 class="afrifood-welcome">Welcome to AfriFood {% if request.user.is_authenticated %} {{user.username}} {% endif %}
     <a href="market">
-    <p class="btn btn-success" style="margin-top: 10px;">SHOP NOW</p>
+    <p class="btn" style="background-color: #006D60; color: white; margin-top: 10px;">SHOP NOW</p>
       </a>
    </h3>
     </div>
@@ -34,7 +34,7 @@
 
    <!-- Browse Our Categories Section -->
    <div id="categories" class="our-categories text-center">
-    <h2>Browse Our Categories</h2>
+    <h2 style="background-color: #006D60; color: white;">Browse Our Categories</h2>
     <p>
       Explore a wide variety of categories filled with authentic African food items. 
        we have meticulously organized our products to help you find exactly what you need.
@@ -91,7 +91,7 @@
 
    <!-- Browse Our Categories Section -->
    <div id="discover" class="our-products text-center">
-    <h2>Discover Our Products</h2>
+    <h2 style="background-color: #006D60; color: white;">Discover Our Products</h2>
     <p>
       Explore the collections of our products like smoked catfish, crayfish, dried black and white ponmo,
       cooking oils and more. At AfriFood, our products are carefully selected to satisy our buyers
@@ -163,7 +163,7 @@
   </div>
   <div>
     <a href="market">
-    <button id="see-more" class="see-more btn-success">See More</button>
+    <button id="see-more" class="see-more btn" style="background-color: #006D60; color: white;">See More</button>
     </a>
   </div>
   <div id="footer-content" class="a-fri-food-message-wrapper">
@@ -204,29 +204,28 @@
         </div>
         <br>
         <div class="sign-up-area-parent">
-          <img
-            class="sign-up-area"
-            loading="lazy"
-            alt=""
-            src="/static/afri_food/public/frame-40.svg"
-          />
-
-          <img
-            class="sign-up-area1"
-            loading="lazy"
-            alt=""
-            src="/static/afri_food/public/frame-41.svg"
-          />
-
-          <img
-            class="sign-up-area2"
-            loading="lazy"
-            alt=""
-            src="/static/afri_food/public/frame-42.svg"
-          />
+          <style>
+            .sign-up-area {
+              font-size: 34px; /* Adjust size as needed */
+              color: #006D60; /* Adjust color as needed */
+              margin-right: 10px; /* Adjust spacing as needed */
+            }
+            .sig-area1 {
+              font-size: 34px;
+              color: #006D60;
+              margin-right: 10px;
+            }
+            .sign-up-area2ram {
+              font-size: 34px;
+              color: #006D60;
+              margin-right: 10px;
+            }
+          </style>
+          <i class="sign-up-area fab fa-facebook" aria-hidden="true"></i>
+          <i class="sig-area1 fab fa-tiktok" aria-hidden="true"></i>
+          <i class="sign-up-area2ram instag fab fa-instagram" aria-hidden="true"></i>
         </div>
-      </div>
-      
+        
       <div id="email-field" class="email-field">
         <div class="contacts-saleafrifood-1-container">
          
