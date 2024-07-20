@@ -7,11 +7,11 @@
       Welcome to AfriFood - Proudly African. Discover our range of products and get indigenous African foods delivered to you!
     </div>
   </div>
-  <div style="margin-top: 70px;" class="row">  
-    <div class="col">  
+  <div style="margin-top: 70px;" class="row">
+    <div class="col">
       <h2>Cooking Oils</h2>
       <br>
-      <div class="row">  
+      <div class="row">
         {% for oil in recent_oils %}
           {% if oil.images.exists %}
             <div class="col-4 d-flex flex-column align-items-center">
@@ -23,15 +23,15 @@
                   alt="{{oil.title}}"
                   src="{{ oil.images.first.image.url }}"
                 />
-                <span>{{ oil.title|truncatechars:10 }}</span> </a>
+                <span>{{ oil.title }}</span> </a>
                  {% if oil.in_cart %}
                   <p type="button" style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Remove Cart</p>
                 {% else %}
                   <p type="button" style="color: green;" class="mt-2 add-to-cart" data-product-type="{{ oil.model_name }}" data-item-id="{{ oil.id }}">Add to Cart</p>
                 {% endif %}
-             
+
             </div>
-            
+
           {% endif %}
         {% endfor %}
       </div>
@@ -46,7 +46,7 @@
 
       <h2>Catfish</h2>
       <br>
-      <div class="row">  
+      <div class="row">
         {% for catfish in recent_catfish %}
           {% if catfish.images.exists %}
             <div class="col-4 d-flex flex-column align-items-center">
@@ -58,7 +58,7 @@
                   alt="{{catfish.title}}"
                   src="{{ catfish.images.first.image.url }}"
                 />
-                <span>{{catfish.title|truncatechars:10}}</span>
+                <span>{{catfish.title}}</span>
               </a>
               {% if catfish.in_cart %}
                   <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ catfish.model_name }}" data-item-id="{{ catfish.id }}">Remove from Cart</p>
@@ -78,7 +78,7 @@
       <hr>
       <h2>Crayfish</h2>
       <br>
-      <div class="row">  
+      <div class="row">
         {% for crayfish in recent_crayfish %}
           {% if crayfish.images.exists %}
             <div class="col-4 d-flex flex-column align-items-center">
@@ -90,7 +90,7 @@
                   alt="{{crayfish.title}}"
                   src="{{ crayfish.images.first.image.url }}"
                 />
-                <span>{{crayfish.title|truncatechars:10}}</span>
+                <span>{{crayfish.title}}</span>
               </a>
               {% if crayfish.in_cart %}
                   <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ crayfish.model_name }}" data-item-id="{{ crayfish.id }}">Remove from Cart</p>
@@ -111,7 +111,7 @@
       <hr>
       <h2>Ponmo By Kg</h2>
       <br>
-      <div class="row">  
+      <div class="row">
         {% for ponmo in recent_ponmo_by_kg %}
           {% if ponmo.images.exists %}
             <div class="col-4 d-flex flex-column align-items-center">
@@ -123,7 +123,7 @@
                   alt="{{ponmo.title}}"
                   src="{{ ponmo.images.first.image.url }}"
                 />
-                <span>{{ponmo.title|truncatechars:10}}</span>
+                <span>{{ponmo.title}}</span>
               </a>
               {% if ponmo.in_cart %}
                   <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</p>
@@ -143,7 +143,7 @@
       <hr>
       <h2>Ponmo By Piece</h2>
       <br>
-      <div class="row">  
+      <div class="row">
         {% for ponmo in recent_ponmo_by_piece %}
         <br>
           {% if ponmo.images.exists %}
@@ -155,7 +155,7 @@
                   alt="{{ponmo.title}}"
                   src="{{ ponmo.images.first.image.url }}"
                 />
-                <span>{{ponmo.title|truncatechars:10}}</span>
+                <span>{{ponmo.title}}</span>
               </a>
               {% if ponmo.in_cart %}
                   <p style="color: red;" class="mt-2 remove-from-cart" data-product-type="{{ ponmo.model_name }}" data-item-id="{{ ponmo.id }}">Remove from Cart</p>
@@ -201,7 +201,7 @@
   }
 
   .product-image {
-    
+
     border-radius: 5px; /* Optional: Add border radius */
     margin-bottom: 10px; /* Add some space between images and text */
   }

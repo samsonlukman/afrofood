@@ -12,8 +12,17 @@
     <link href="{% static 'afri_food/market.css' %}" rel="stylesheet">
     <link href="{% static 'afri_food/detail.css' %}" rel="stylesheet">
     <link href="{% static 'afri_food/upload.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/media/images/afr.png">
     <script src="{% static 'afri_food/script.js' %}"></script>
-  
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-73M17CZGNC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-73M17CZGNC');
+</script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -146,7 +155,7 @@ function closeModal(modalId) {
 
     </script>
   </head>
- 
+
     <body style="  font-family: sans-serif">
       <script>
         function checkAuthAndRedirect(event, text) {
@@ -190,7 +199,7 @@ function closeModal(modalId) {
       </script>
       {% include 'market/login.html' %}
       {% include 'market/register.html' %}
-      
+
       <div class="large-screen-only container-fluid top-page">
           <div class="row">
               <div class="col-l" style="margin-left: 40px;">
@@ -204,7 +213,7 @@ function closeModal(modalId) {
                         <input id="search-button" type="text" name="q" placeholder="Search" style="background-image: url('media/post_image/search.png'); background-repeat: no-repeat; background-position: left center; padding-left: 15px; outline: none;">
                       </form>
                     </div>
-                    
+
               </div>
               <div class="col-md-2">
                   <!-- Content for Column 3 -->
@@ -212,7 +221,7 @@ function closeModal(modalId) {
                   <i class="fas fa-home top-page" style="margin-top: 10px;"></i>
                   <p style="margin-top: 40px;">Home</p>
               </a>
-                  
+
               </div>
               <div class="col-md-2">
                   <!-- Content for Column 4 -->
@@ -222,10 +231,10 @@ function closeModal(modalId) {
                   <p style="margin-top: 40px;">Logout</p>
                   </a>
                   {% else %}
-                  
+
                     <i onclick="openModal('loginModal')" class="fas fa-sign-in-alt top-page" style="margin-top: 10px;"></i>
                     <p onclick="openModal('loginModal')" style="margin-top: 40px;">Sign in / Sign up</p>
-                   
+
 
                     {% endif %}
               </div>
@@ -243,23 +252,23 @@ function closeModal(modalId) {
                   </a>
                 {% endif %}
               </div>
-              
-              
-              
+
+
+
               <div class="col-md-2">
                   <!-- Content for Column 6 -->
               <i onclick="openModal('categoryModal')" class="fas fa-tags top-page" style="margin-top: 10px;"></i>
               <p onclick="openModal('categoryModal')" style="margin-top: 40px;"> Categories</p>
               </div>
           </div>
-          
+
         </div>
         <div class="modal" id="categoryModal">
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
                       <h5 class="modal-title" id="deleteModalLabel-{{ comment.id }}">Categories</h5>
-                      
+
                   </div>
                   <div class="modal-body">
                     <a class="dropdown-item" href="{% url 'oils' %}">Oils</a>
@@ -274,15 +283,15 @@ function closeModal(modalId) {
               </div>
           </div>
 
-        
+
       </div>
 
-  
+
 
       <nav class="mobile-header" id="nav">
         <a href="{% url 'index' %}">
           <i class="fas fa-home"></i>
-        
+
       </a>
       {% if request.user.is_authenticated %}
       <a href="{% url 'logout' %}">
@@ -290,39 +299,39 @@ function closeModal(modalId) {
 
       </a>
       {% else %}
-      
+
         <i onclick="openModal('loginModal')" class="fas fa-sign-in-alt"></i>
-        
-       
+
+
 
         {% endif %}
 
-       
+
           <i style="margin-left: 10px;" onclick="openModal('searchModal')" class="fas fa-search"></i>
-        
+
 
 
         {% if user.is_authenticated %}
         <a href="{% url 'cart_view' %}">
           <i class="fas fa-shopping-cart"><span class="">{{cart_item_count}}</span></i>
-          
+
         </a>
       {% else %}
         <a href="#" onclick="checkAuthAndRedirect(event, 'You need to sign in to view the cart')">
           <i class="fas fa-shopping-cart"></i>
-          
+
         </a>
       {% endif %}
       <i onclick="openModal('categoryModal')" class="fas fa-tags"></i>
-      
 
-      
+
+
     </nav>
 
     <div class="modal" id="searchModal">
       <div class="modal-dialog">
           <div class="modal-content">
-             
+
               <div class="modal-body">
                 <div id="searchicon">
                   <form action="{% url 'search' %}" method="get" style="margin-top: 10px;">
@@ -345,9 +354,9 @@ function closeModal(modalId) {
             src="/static/afri_food/public/9886646-1@2x.png"
         />
       </div>
-       
+
           {% block body %}{% endblock %}
-          
-          
+
+
   </body>
 </html>

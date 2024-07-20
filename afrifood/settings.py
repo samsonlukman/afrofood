@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!)gqpc-u#=juetc8*%$3q(0lmrwl6m)ct+4a26$i!j=g%zb%%-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['shopafrifood.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
 ]
 
 MIDDLEWARE = [
