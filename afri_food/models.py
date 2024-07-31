@@ -5,7 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelatio
 from django.contrib.contenttypes.models import ContentType
 
 
-class User(AbstractUser):   
+class User(AbstractUser):
     phone_number = models.CharField(max_length=20, null=True, blank=True)
 
 
@@ -110,6 +110,10 @@ class PonmoByKg(models.Model):
 
 
 class PonmoByPiece(models.Model):
+    class Meta:
+        verbose_name = "Others"
+        verbose_name_plural = "Others"
+
     title = models.CharField(max_length=100)
     piece = models.FloatField(help_text="Enter the number of pieces")
     in_stock = models.BooleanField(default=True, help_text="Is this item in stock?")
@@ -120,7 +124,7 @@ class PonmoByPiece(models.Model):
 
     def __str__(self):
         return f"{self.title} {self.piece} pieces - ${self.price} {self.subcategory} - {'In Stock' if self.in_stock else 'Out of Stock'}"
-    
+
 
 
 class Cart(models.Model):
@@ -138,7 +142,7 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.content_object} - {self.quantity}"
-    
+
 
 
 class Order(models.Model):
